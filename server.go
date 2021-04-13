@@ -14,6 +14,11 @@ func main() {
 	http.HandleFunc("/home", home)
 	http.Handle("/home/", http.NotFoundHandler())
 	http.ListenAndServe(":8000", nil)
+
+	http.Handle("/", http.NotFoundHandler())
+	http.HandleFunc("/dates", dates)
+	http.Handle("/dates/", http.NotFoundHandler())
+	http.ListenAndServe(":8000", nil)
 }
 
 func home(w http.ResponseWriter, req *http.Request) {
@@ -23,4 +28,13 @@ func home(w http.ResponseWriter, req *http.Request) {
 	}
 	
 	tHome.Execute(w, nil)
+}
+
+func dates(w http.RsponseWriter, req *http.Rquest) {
+	tDates, err := template.ParseFiles("templates/dates.html")
+	if (err != nil) {
+		w.WriteHeader(400)	
+	}
+	
+	tDates.Execute(w, nil)
 }
