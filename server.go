@@ -25,6 +25,11 @@ func main() {
 
 	// Port :
 	http.ListenAndServe(":8000", nil)
+
+	http.Handle("/", http.NotFoundHandler())
+	http.HandleFunc("/dates", dates)
+	http.Handle("/dates/", http.NotFoundHandler())
+	http.ListenAndServe(":8000", nil)
 }
 
 func home(w http.ResponseWriter, req *http.Request) {
