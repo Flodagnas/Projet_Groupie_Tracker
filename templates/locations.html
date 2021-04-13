@@ -5,28 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locations</title>
+    <style >
+        #navigation li a {
+            display: block ;
+            background: rgb(44, 120, 250) ;
+            color: rgb(0, 0, 0) ;
+            font: 1em "Trebuchet MS",Arial,sans-serif ;
+            text-align: left ;
+            padding: 4px 0 ;
+        }
+        #navigation li a:hover, #navigation li a:focus, #navigation li a:active {
+            background: rgb(44, 135, 250) ;
+            text-decoration: underline ;
+        }
+        .section {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100px;
+            height: 100px;
+        }
+             
+      </style>
 </head>
 <body>
-    <div class="title">
-        <h1>Page locations</h1>
-    </div>
-    <a href="/home">Go Home</a>
-    <a href="/artists">Display artists</a>
-    <a href="/dates">Display dates</a>
-    <select class="locations">
-        <article class="concert">
-            <div class="image">
-                <img src="https://www.google.fr/url?sa=i&url=http%3A%2F%2Fwww.playing-informatique.fr%2F&psig=AOvVaw3IrNnJmPH4Tdcgt_r1KOzK&ust=1618383118360000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjg5orR-u8CFQAAAAAdAAAAABAD">
-            </div>
-            <div class="text">
-                <div class="section_titre">
-                    <h2>titre</h2>
+    <header>
+        <div class="title">
+            <h1>Page locations</h1>
+        </div>
+    </header>
+    <nav>
+        <ul id="navigation">
+            <li><a href="/home">Go Home</a></li>
+            <li><a href="/artists">Display artists</a></li>
+            <li><a href="/dates">Display dates</a></li>
+        </ul>
+    </nav>
+    <br>
+    <section class="section">
+        <aside class="locations">
+            <article class="d-concert">
+                <div class="image">
+                    <img src="https://www.google.fr/url?sa=i&url=http%3A%2F%2Fwww.playing-informatique.fr%2F&psig=AOvVaw3IrNnJmPH4Tdcgt_r1KOzK&ust=1618383118360000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjg5orR-u8CFQAAAAAdAAAAABAD">
                 </div>
-                <div class="section_text">
-                    <span class="section_text">test 1 2 1 2</span>
+                <div class="text">
+                    <div class="section_titre">
+                        <h2>Dernier concert</h2>
+                    </div>
+                    <div class="section_text">
+                        <span class="section_text">test 1 2 1 2</span>
+                    </div>
                 </div>
-            </div>
-        </article>
-    </select>
+            </article>
+        </aside>
+            <aside class="locations">
+            <article class="p-concert">
+                <div class="image">
+                    <img src="https://www.google.fr/url?sa=i&url=http%3A%2F%2Fwww.playing-informatique.fr%2F&psig=AOvVaw3IrNnJmPH4Tdcgt_r1KOzK&ust=1618383118360000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjg5orR-u8CFQAAAAAdAAAAABAD">
+                </div>
+                <div class="text">
+                    <div class="section_titre">
+                        <h2>Futur concert</h2>
+                    </div>
+                    <div class="section_text">
+                        <span class="section_text">test 1 2 1 2</span>
+                    </div>
+                </div>
+            </article>
+        </aside>
+    </section>
 </body>
 </html>
