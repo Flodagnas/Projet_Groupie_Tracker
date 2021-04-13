@@ -7,9 +7,37 @@
     <title>Artistes</title>
 </head>
 <body>
-    <h1>Page artists</h1>
-    <a href="/home">Go Home</a>
-    <a href="/dates">Display dates</a>
-    <a href="/locations">Display locations</a>
+    
+    <div>
+        <h1>Artist - Groupie Tracker</h1>
+        <a href="/home">Go Home</a>
+        <a href="/dates">Display dates</a>
+        <a href="/locations">Display locations</a>
+    </div>
+
+    <div id="content">
+        <div id="search">
+            <form id="filter-form">
+                <select>  
+                    <option value="az">A - Z</option>
+                    <option value="za">Z - A</option>
+                    <option value="album1">1st Album newest</option>
+                    <option value="album9">1st Album oldest</option>
+                    <option value="creation1">Creation newest</option>
+                    <option value="creation9">Creation oldest</option>
+                    <option value="placeaz">Place A - Z</option>
+                    <option value="placeza">Place Z - A</option>
+                </select>
+            </form>
+
+            <form id="search-form">
+                <input type="text" placeholder="search"> 
+            </form>
+        </div>
+        <div id="artists">
+            <div id=div1>div 1</div>
+
+        </div>
+    </div>
 </body>
 </html>
