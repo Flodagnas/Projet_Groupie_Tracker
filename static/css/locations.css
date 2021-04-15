@@ -1,6 +1,9 @@
 body{
     background-color: #909090;
 }
+.title{
+    text-align: center;
+}
 section#principal{
     background-color:#808080; 
     overflow:auto;
