@@ -3,6 +3,10 @@ body {
     padding: 0;
 }
 
+span.bold {
+    font-weight: bold;
+}
+
 .main {
     width: 100%;
 }
@@ -62,8 +66,8 @@ article#right{
 
 .content {
     height: 800px;
-    margin-top: 5%;
-    margin-left: 5%;
+    background-repeat: no-repeat repeat;
+    opacity: 0.5;
 }
 
 footer {
@@ -80,4 +84,26 @@ footer {
 footer div a {
     text-decoration: none;
     color: rgb(224, 213, 110);
+}
+
+
+.wrapper {
+    animation: scroll 70s linear infinite;
+    background: url('/static/src/backgroundConcertDark.png');
+    color: #eee;
+    height: 100vh;
+    min-width: 360px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+
+}
+
+@keyframes scroll {
+    100%{
+        background-position:0px -3000px;
+    }
 }
