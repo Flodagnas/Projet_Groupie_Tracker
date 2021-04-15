@@ -1,0 +1,18 @@
+#navigation li a {
+    display: block ;
+    background: rgb(44, 120, 250) ;
+    color: rgb(0, 0, 0) ;
+    font: 1em "Trebuchet MS",Arial,sans-serif ;
+    text-align: left ;
+    padding: 4px 0 ;
+}
+#navigation li a:hover, #navigation li a:focus, #navigation li a:active {
+    background: rgb(44, 135, 250) ;
+    text-decoration: underline ;
+}
+.section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100px;
+    height: 100px;
+}
