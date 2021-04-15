@@ -5,20 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="static/css/navbar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <script src="static/js/navbar.js" defer></script>
     <title>Home - Groupie Tracker</title>
 </head>
 <body>
-    <div class="navBar">
-        
+    <div class="navbar">
+        <h1>Groupie Tracker</h1>
+        <h4>All you want to know about concerts</h4>
+        <nav class="tabs">
+            <div class="selector"></div>
+            <a href="#"  class="link active">Accueil</a>
+            <a href="#" class="link">Artistes</a>
+            <a href="#" class="link">Dates</a>
+            <a href="#" class="link">Villes</a>
+        </nav>
     </div>
-    <main>
-        <h1> H1 Title </h1>
-        <a href="/artists">Display artists</a>
-        <a href="/dates">Display dates</a>
-        <a href="/locations">Display locations</a>
-    </main>
+    <div class="main">
+        <!-- <div class="picture">
+            <h2>Ne manque plus une miette des tournées de tes artistes favoris !</h2>
+        </div> -->
+        <div class="demo_wrap">
+            <h1>Ne manque plus une miette des tournées de tes artistes favoris !</h1>
+            <p class="left">Groupie Tracker est un projet consistant à répertorier toutes les données associées à la programmation des concerts à travers le monde.</p>
+            <p class="left">Que ce soit l'artiste, la date ou la ville, tu peux faire tes recherches afin de manquer aucun concert de tes artistes préférés.</p>
+            <p class="right">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+        <div class="content">
+            <h1> H1 Title </h1>
+            <ul style="list-style: none;">
+                <li><a style="text-decoration: none; color: black;" href="/home">Go home</a></li>
+                <li><a style="text-decoration: none; color: black;" href="/artists">Display artists</a></li>
+                <li><a style="text-decoration: none; color: black;" href="/dates">Display dates</a></li>
+                <li><a style="text-decoration: none; color: black;" href="/locations">Display locations</a></li>
+            </ul>
+        </div>
+    </div>
     <footer>
-        <div>Icônes conçues par <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/fr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>Icons created by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/fr/" title="Flaticon">www.flaticon.com</a></div>
     </footer>
 </body>
 </html>

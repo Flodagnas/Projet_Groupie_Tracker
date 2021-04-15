@@ -9,8 +9,8 @@ var t *template.Template
 
 func main() {
 	t = template.Must(template.ParseFiles("templates/index.html"))
-	// Importation du CSS :
-	http.Handle("/static/css/", http.StripPrefix("/static/css/", http.FileServer(http.Dir("static/css"))))
+	// Importation des fichiers statiques :
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.Handle("/", http.NotFoundHandler())
 
 	// Accès aux pages :
