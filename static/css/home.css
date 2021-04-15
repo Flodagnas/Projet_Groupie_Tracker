@@ -8,30 +8,6 @@ body {
     width: 100%;
 }
 
-/* .picture {
-    position: relative;
-    overflow: hidden;
-}
-.picture:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    height: 819px;
-    box-shadow: 0px 0px 15px 5px rgb(58, 58, 58);
-    opacity: 0.8;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    background-image: url("/static/src/concertRogne.jpg");
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-}
-.picture h2 {
-    position: relative;
-    z-index: 2;
-    padding: 50px;
-} */
 .demo_wrap {
     position: relative;
     overflow: hidden;
