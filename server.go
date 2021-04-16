@@ -7,9 +7,23 @@ import (
 
 var t *template.Template
 
+type Response struct {
+	id           int
+	image        string
+	name         string
+	members      []string
+	creationDate int
+	firstAlbum   string
+	locations    string
+	concertDates string
+	relations    string
+}
+
 func main() {
+	// getJson()
 	t = template.Must(template.ParseFiles("templates/index.html"))
-	// http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.Handle("/", http.NotFoundHandler())
 	http.HandleFunc("/home", home)
 	http.Handle("/home/", http.NotFoundHandler())
@@ -24,3 +38,32 @@ func home(w http.ResponseWriter, req *http.Request) {
 
 	tHome.Execute(w, nil)
 }
+
+// func getJson() {
+// 	url := "https://groupietrackers.herokuapp.com/api/artists"
+
+// 	var tab []Response
+
+// 	res, errGet := http.Get(url)
+// 	// fmt.Println(res)
+
+// 	if errGet != nil {
+// 		panic(errGet.Error())
+// 	}
+
+// 	body, errRead := ioutil.ReadAll(res.Body)
+// 	// fmt.Println(body)
+
+// 	if errRead != nil {
+// 		panic(errRead.Error())
+// 	}
+
+// 	// var artist Response
+
+// 	err := json.Unmarshal(body, &tab)
+// 	fmt.Println(err)
+
+// 	fmt.Println(tab)
+// 	// fmt.Println(artist.name)
+
+// }

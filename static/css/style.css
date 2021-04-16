@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@300;400;500;700');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(224, 224, 224);
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.card {
+    background: rgb(160, 160, 160);
+    height: 100px;
+    width: 200px;
+    border-radius: 10px;
+    padding: 3%;
+    margin: 3%;
+}
