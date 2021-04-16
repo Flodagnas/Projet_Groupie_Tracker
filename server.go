@@ -18,9 +18,9 @@ func main() {
 
 func home(w http.ResponseWriter, req *http.Request) {
 	tHome, err := template.ParseFiles("templates/home.html")
-	if (err != nil) {
-		w.WriteHeader(400)	
+	if err != nil {
+		w.WriteHeader(400)
 	}
-	
+
 	tHome.Execute(w, nil)
 }
