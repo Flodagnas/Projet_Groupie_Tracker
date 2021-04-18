@@ -78,6 +78,7 @@ footer {
     color: white;
     margin-bottom: 0%;
     box-shadow: 0px 0px 15px 5px rgb(58, 58, 58);
+    z-index: 2;
 }
 footer div a {
     text-decoration: none;
@@ -92,7 +93,7 @@ footer div a {
     animation: scroll 70s linear infinite;
     background: url('/static/src/backgroundConcertDark.png');
     color: #eee;
-    height: 115vh;
+    height: 110.8vh;
     min-width: 360px;
     width: 100%;
     display: flex;
