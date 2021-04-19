@@ -8,15 +8,6 @@ function loadData(artists) {
     }
 }
 
-// function makeCard(artist) {
-//     let div = document.createElement('div')
-//     div.className = "card"
-//     let p = document.createElement('p')
-//     p.innerText += artist.name
-//     div.appendChild(p)
-//     document.querySelector('.cards').appendChild(div)
-// }
-
 function makeCard(artist) {
     let card = document.createElement('div')
     card.className = 'card'
@@ -42,6 +33,6 @@ function makeCard(artist) {
     textContent.appendChild(bodyText)
     card.innerHTML += `<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>`
 
-    document.querySelector('.testStyle').appendChild(card)
-
+    document.querySelector('.cards').appendChild(card)
+    
 }
