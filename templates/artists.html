@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/cards.css">
     <title>Artistes</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../static/src/logo.png">
 </head>
@@ -55,10 +56,14 @@
                 <input type="text" placeholder="search"> 
             </form>
         </div>
-        <div id="artists">
-            <div id=div1>"div 1"</div>
+        <div class="cards">
 
         </div>
     </div>
+
+    <script>
+        let responseData = '{{.ResponseData}}'
+    </script>
+    <script src="../js/display.js" defer></script>
 </body>
 </html>
