@@ -59,14 +59,10 @@ article#right{
     background-repeat: no-repeat;
     background-position: 50% 0;
 }
-
-
-
 .content {
     height: 800px;
     background-repeat: no-repeat repeat;
 }
-
 footer {
     display: flex;
     justify-content: center;
@@ -84,8 +80,6 @@ footer div a {
     text-decoration: none;
     color: rgb(224, 213, 110);
 }
-
-
 .wrapper:before {
     content: ' ';
     position: absolute;

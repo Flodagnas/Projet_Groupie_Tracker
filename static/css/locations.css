@@ -3,16 +3,22 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
 }
+body:before{
+    z-index: 1;
+    opacity: 0.5;
+}
 .title{
     text-align: center;
 }
 nav {
     color: white;
+    z-index: 2;
 }
 nav ul li a{
     color: white;
 }
 section#principal{
+    z-index: 2;
     overflow:auto;
     padding:10px;
 }
