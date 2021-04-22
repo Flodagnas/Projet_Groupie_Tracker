@@ -35,8 +35,6 @@ function makeCard(artist) {
     let image = document.createElement('img')
     image.className = 'image'
     image.setAttribute("src", artist.image)
-    image.setAttribute("height", "240px")
-    image.setAttribute("width", "240px")
 
     card.setAttribute("onclick", "cardOnClick(this)")
     let text = document.createElement('div')
