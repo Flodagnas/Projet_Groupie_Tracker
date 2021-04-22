@@ -10,6 +10,18 @@
 <body>
     <h1> H1 Title </h1>
 
+    <select name="filterSelect" id="filterSelect">
+        <option value="1">A - Z</option>
+        <option value="2">Z - A</option>
+        <option value="3">Place A - Z</option>
+        <option value="4">Place Z - A</option>
+        <option value="5">1st Album newest</option>
+        <option value="6">1st Album oldest</option>
+        <option value="7">Creation newest</option>
+        <option value="8">Creation oldest</option>
+        
+    </select>
+
     <div class="cards">
 
     </div>
@@ -18,5 +30,6 @@
         let responseData = '{{.ResponseData}}'
     </script>
     <script src="../js/display.js" defer></script>
+    <script src="../js/filter.js" defer></script>
 </body>
 </html>
