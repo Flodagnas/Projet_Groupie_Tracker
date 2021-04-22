@@ -28,7 +28,7 @@ body {
     cursor: pointer;
     height: 280px;
     margin: 20px;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0.025);
     text-align: center;
@@ -86,6 +86,17 @@ body {
 }
 .text.displayed {
     display: block;
+}
+
+.image {
+    border: transparent;
+    border-radius: 9px 9px 0px 0px;
+
+}
+
+.image.expanded {
+    border-radius: 0px;
+
 }
 
 .members {

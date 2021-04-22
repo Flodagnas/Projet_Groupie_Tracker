@@ -28,10 +28,16 @@ function makeCard(artist) {
     let card = document.createElement('div')
     card.className = 'card'
     let url = "url('" + artist.image + "')"
-    card.style.background = url
-    card.style.backgroundRepeat = "no-repeat"
-    card.style.backgroundSize = "contain"
-    card.style.backgroundPosition = "0 20%"
+    //card.style.background = url
+    // card.style.backgroundRepeat = "no-repeat"
+    // card.style.backgroundSize = "contain"
+    // card.style.backgroundPosition = "0 20%"
+    let image = document.createElement('img')
+    image.className = 'image'
+    image.setAttribute("src", artist.image)
+    image.setAttribute("height", "240px")
+    image.setAttribute("width", "240px")
+
     card.setAttribute("onclick", "cardOnClick(this)")
     let text = document.createElement('div')
     text.className = 'text'
@@ -42,8 +48,9 @@ function makeCard(artist) {
     title.className = 'title'
     let bodyText = document.createElement('div')
     bodyText.className = 'body-text'
-
     card.appendChild(text)
+    card.appendChild(image)
+
     text.appendChild(textContent)
     textContent.appendChild(title)
     textContent.appendChild(bodyText)
@@ -59,6 +66,7 @@ function cardOnClick(el) {
     el.classList.toggle('expanded')
     el.querySelector('.text').classList.toggle('displayed')
     el.querySelector('.members').classList.toggle('displayed')
+    el.querySelector('.image').classList.toggle('expanded')
 }
 
 loadData(responseData)
