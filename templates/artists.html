@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="stylesheet" href="../static/css/cards.css">
+    <title>Artistes</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/src/logo.png">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Groupie Tracker</h1>
+        <h4>All you want to know about concerts</h4>
+        <nav class="tabs">
+            <div class="selector"></div>
+            <a href="/home"  class="link">Accueil</a>
+            <a href="#" class="link active">Artistes</a>
+            <a href="/dates" class="link">Dates</a>
+            <a href="/locations" class="link">Villes</a>
+        </nav>
+    </div>
+    
+    <div>
+        <h1>Artist - Groupie Tracker</h1>
+        <a href="/home">Go Home</a>
+        <a href="/dates">Display dates</a>
+        <a href="/locations">Display locations</a>
+    </div>
+    
+    </select>
+    <div class="search">
+        <label for="searchInput">Search</label>
+        <input type="text" name="searchInput" id="searchInput">
+        <select name="searchSelect" id="searchSelect">
+            <option value="name">Name</option>
+            <option value="biography.fullName">Full name</option>
+        </select>
+    </div>
+    <div id="content">
+        <div id="search">
+            <form id="filter-form">
+                <select>  
+                    <option value="az">A - Z</option>
+                    <option value="za">Z - A</option>
+                    <option value="album1">1st Album newest</option>
+                    <option value="album9">1st Album oldest</option>
+                    <option value="creation1">Creation newest</option>
+                    <option value="creation9">Creation oldest</option>
+                    <option value="placeaz">Place A - Z</option>
+                    <option value="placeza">Place Z - A</option>
+                </select>
+            </form>
+            <form id="search-form">
+                <input type="text" placeholder="search"> 
+            </form>
+        </div>
+        <div class="cards">
+
+        </div>
+    </div>
+
+    <script>
+        let responseData = '{{.ResponseData}}'
+    </script>
+    <script src="../js/display.js" defer></script>
+</body>
+</html>
