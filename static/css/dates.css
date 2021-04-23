@@ -1,0 +1,64 @@
+.demo_wrap {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    box-shadow: 0px 0px 15px 5px rgb(58, 58, 58);
+}
+.demo_wrap h1 {
+    padding: 100px;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 5px;
+    text-align: center;
+    font-size: 34px;
+    color: #121013;
+}
+.demo_wrap p {
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 4 00;
+    color: #121013;
+}
+.demo_wrap:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1000px;
+    z-index: 1;
+    opacity: 0.5;
+    background-image: url('/static/src/musii.gif');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+}
+section#principal{
+    overflow:auto;
+    padding:10px;
+}
+article#d-concert{
+    background-color: white;
+    z-index: 2;
+    float:left;
+    margin-left:25%;
+    border-style: outset;
+    border-radius: 10px;
+    text-align: center;
+}
+article#p-concert{
+    background-color: white;
+    z-index: 2;
+    float:right;
+    margin-right:25%;
+    border-style: outset;
+    border-radius: 10px;
+    text-align: center;
+}
+article#d-concert:hover, article#d-concert:focus, article#d-concert:active {
+    background: #A0A0A0 ;
+}
+article#p-concert:hover, article#p-concert:focus, article#p-concert:active {
+    background: #A0A0A0 ;
+}
