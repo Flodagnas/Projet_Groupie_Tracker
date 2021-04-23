@@ -1,8 +1,7 @@
 console.log("Script filter loaded")
 
-let filterSelect = ""
 let isreverse = false
-let isDate = false
+let type = ""
 let cards = []
 document.querySelectorAll('.card').forEach(card => {
     cards.push(card)
@@ -10,28 +9,38 @@ document.querySelectorAll('.card').forEach(card => {
 
 // Liste à choix des catégories
 document.querySelector('#filterSelect').addEventListener('change', () => {
-    filterSelect = document.querySelector('#filterSelect').value
-    isReverse = parseInt(filterSelect) % 2 == 0 ? true : false
-    isDate = parseInt(filterSelect) >= 5 ? true : false
-    filter()
+    filter(document.querySelector('#filterSelect').value)
 })
 
-function filter(filterSelect, type, isReverse) {
+// Fonction de filtrage des cartes
+function filter(filterSelect) {
 
-    for (let card of cards) {
-        card.remove
+    if (filterSelect == '0') {
+        document.location.reload()
+        return;
     }
 
-    if (isDate) {
+    for (let card of cards) {
+        card.remove()
+    }
+
+    isReverse = parseInt(filterSelect) % 2 == 0 ? true : false
+    type = parseInt(filterSelect) == (5 || 6) ? "date" : parseInt(filterSelect) == (7 || 8) ? "int" : "string"
+
+    if (type == "date") {
         cards.sort(function(a, b) {
-            let dateA = new Date(a.querySelector('pathToDate').split('-').reverse().join('-'))
-            let dateB = new Date(b.querySelector('pathToDate').split('-').reverse().join('-'))
+            let dateA = new Date(a.querySelector('p.firstAlbum').innerText.split('-').reverse().join('-'))
+            let dateB = new Date(b.querySelector('p.firstAlbum').innerText.split('-').reverse().join('-'))
             return dateA - dateB
         })
 
+    } else if (type == "string") {
+        cards.sort(function(a, b) {
+            return a.querySelector('div.text div.text-content h1.title').innerText.localeCompare(b.querySelector('div.text div.text-content h1.title').innerText)
+        })
     } else {
         cards.sort(function(a, b) {
-            return a.querySelector('.text.text-content.title') - b.querySelector('.text.text-content.title')
+            return parseInt(a.querySelector('p.creationDate').innerText) - parseInt(b.querySelector('p.creationDate').innerText)
         })
     }
 
@@ -39,7 +48,7 @@ function filter(filterSelect, type, isReverse) {
         cards.reverse()
     }
 
+    for (let card of cards) {
+        document.querySelector('.cards').appendChild(card)
+    }
 }
-
-// let artists = JSON.parse(responseData)
-// console.log(artists[0]['firstAlbum'].split('-').reverse().join('-'))
