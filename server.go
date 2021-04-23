@@ -88,3 +88,19 @@ func loadAPI() string {
 
 	return string(responseData)
 }
+
+//Lire l'API
+func loadDates() string {
+	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/dates")
+
+	if errGet != nil {
+		log.Fatal(errGet)
+	}
+
+	responseData, errReadAll := ioutil.ReadAll(response.Body)
+	if errReadAll != nil {
+		log.Fatal(errReadAll)
+	}
+
+	return string(responseData)
+}
