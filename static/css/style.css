@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@300;400;500;700');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(224, 224, 224);
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:900');
+.cards {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: sans-serif;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .cards {
+        display: block;
+    }
+}
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+    /* height: 280px; */
+    /* min-height: 0px; */
+    max-height: 300px;
+    margin: 20px;
+    /* padding: 0 20px; */
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.025);
+    text-align: center;
+    /* transition: height 1s; */
+    transition: max-height 1s;
+    width: 240px;
+    opacity: 0.8;
+}
+@media (max-width: 767px) {
+    .card {
+        left: calc(50% - 20px);
+        transform: translateX(-50%);
+    }
+}
+.card.expanded {
+    /* height: 600px; */
+    /* height: fit-content; */
+    max-height: 800px;
+    /* transition: height 1s; */
+    /* transition: max-height 1s; */
+
+}
+.label {
+    margin-top: 30px;
+    transform: translateY(10px);
+    transition: transform 1000ms;
+}
+.card.expanded .label {
+    transform: translateY(0);
+}
+/* .text-content {
+  transform: translateY(-160px);
+  transition: transform 1000ms;
+}
+.card.expanded .text-content {
+  transform: translateY(-15px);
+} */
+.chevron {
+    /* position: absolute; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    bottom: 20px;
+    left: calc(50% - 15px);
+    transform-origin: 50%;
+    transform: rotate(180deg);
+    transition: transform 1000ms;
+}
+.card.expanded .chevron {
+    transform: rotate(0deg);
+}
+.title {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 900;
+    margin: 10px 0 12px;
+}
+.body-text {
+    padding: 0 20px;
+}
+
+.text {
+    display: none;
+    transition: display 2s;
+}
+.text.displayed {
+    display: block;
+}
+
+.image {
+    border: transparent;
+    border-radius: 9px 9px 0px 0px;
+    height: 240px;
+    width: 240px;
+
+}
+
+.image.expanded {
+    border-radius: 0px;
+
+}
+
+.beforeMembers {
+    display: none;
+    transition: display 2s;
+}
+
+.beforeMembers.displayed {
+    display: block;
+
+}
+
+.beforeDate {
+    display: none;
+    transition: display 2s;
+}
+
+.beforeDate.displayed {
+    display: block;
+
+}
+
+.creationDate {
+    display: none;
+    transition: display 2s;
+}
+
+.creationDate.displayed {
+    display: block;
+
+}
+
+.beforeAlbum {
+    display: none;
+    transition: display 2s;
+}
+
+.beforeAlbum.displayed {
+    display: block;
+
+}
+
+.firstAlbum {
+    display: none;
+    transition: display 2s;
+}
+
+.firstAlbum.displayed {
+    display: block;
+
+}
+
+.members {
+    margin-top: 10px;
+    display: none;
+    /* margin-bottom: 50px; */
+}
+.members.displayed {
+    display: block;
+} 

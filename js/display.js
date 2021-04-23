@@ -61,4 +61,4 @@ function cardOnClick(el) {
     el.querySelector('.members').classList.toggle('displayed')
 }
 
-loadData(responseData)
+loadData(responseData) 
