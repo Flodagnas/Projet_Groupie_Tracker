@@ -10,10 +10,14 @@ function loadData(artists) {
 
 function makeCard(artist) {
     let members
+    let beforeMembers = document.createElement('p')
+    beforeMembers.className = 'beforeMembers'
     if (artist.members.length == 1) {
         let p = document.createElement('p')
         p.innerText += artist.members[0]
         members = p
+        beforeMembers.innerText += "Full Name :"
+
     } else {
         let list = document.createElement('ul')
         for (member of artist.members) {
@@ -22,6 +26,8 @@ function makeCard(artist) {
             list.appendChild(line)
         }
         members = list
+        beforeMembers.innerText += "Members :"
+
     }
     members.classList.add('members')
 
@@ -35,7 +41,20 @@ function makeCard(artist) {
     let image = document.createElement('img')
     image.className = 'image'
     image.setAttribute("src", artist.image)
+    let beforeDate = document.createElement('p')
+    beforeDate.innerText += "Creation date :"
+    beforeDate.className = 'beforeDate'
 
+    let firstAlbum = document.createElement('p')
+    firstAlbum.innerText += artist.firstAlbum
+    firstAlbum.className = 'firstAlbum'
+    let beforeAlbum = document.createElement('p')
+    beforeAlbum.innerText += "First Album :"
+    beforeAlbum.className = 'beforeAlbum'
+
+    let creationDate = document.createElement('p')
+    creationDate.innerText += artist.creationDate 
+    creationDate.className = 'creationDate'
     card.setAttribute("onclick", "cardOnClick(this)")
     let text = document.createElement('div')
     text.className = 'text'
@@ -48,10 +67,14 @@ function makeCard(artist) {
     bodyText.className = 'body-text'
     card.appendChild(text)
     card.appendChild(image)
-
+    card.appendChild(beforeMembers)
     text.appendChild(textContent)
     textContent.appendChild(title)
     textContent.appendChild(bodyText)
+    card.appendChild(beforeDate)
+    card.appendChild(creationDate)
+    card.appendChild(beforeAlbum)
+    card.appendChild(firstAlbum)
     card.innerHTML += `<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>`
     document.querySelector('.cards').appendChild(card)
 
@@ -65,6 +88,11 @@ function cardOnClick(el) {
     el.querySelector('.text').classList.toggle('displayed')
     el.querySelector('.members').classList.toggle('displayed')
     el.querySelector('.image').classList.toggle('expanded')
+    el.querySelector('.beforeMembers').classList.toggle('displayed')
+    el.querySelector('.beforeDate').classList.toggle('displayed')
+    el.querySelector('.creationDate').classList.toggle('displayed')
+    el.querySelector('.beforeAlbum').classList.toggle('displayed')
+    el.querySelector('.firstAlbum').classList.toggle('displayed')
 }
 
 loadData(responseData)
