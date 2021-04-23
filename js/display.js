@@ -68,6 +68,7 @@ function makeCard(artist) {
     card.appendChild(text)
     card.appendChild(image)
     card.appendChild(beforeMembers)
+    card.appendChild(members)
     text.appendChild(textContent)
     textContent.appendChild(title)
     textContent.appendChild(bodyText)
@@ -79,7 +80,7 @@ function makeCard(artist) {
     document.querySelector('.cards').appendChild(card)
 
     let svg = document.querySelectorAll('.chevron')[document.querySelectorAll('.chevron').length - 1]
-    document.querySelectorAll('.card')[document.querySelectorAll('.card').length - 1].insertBefore(members, svg)
+    //document.querySelectorAll('.card')[document.querySelectorAll('.card').length - 1].insertBefore(members, svg)
     
 }
 
