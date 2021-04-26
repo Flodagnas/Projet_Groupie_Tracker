@@ -26,15 +26,11 @@ body {
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     cursor: pointer;
-    /* height: 280px; */
-    /* min-height: 0px; */
     max-height: 300px;
     margin: 20px;
-    /* padding: 0 20px; */
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0.025);
     text-align: center;
-    /* transition: height 1s; */
     transition: max-height 1s;
     width: 240px;
     opacity: 0.8;
@@ -46,12 +42,7 @@ body {
     }
 }
 .card.expanded {
-    /* height: 600px; */
-    /* height: fit-content; */
     max-height: 800px;
-    /* transition: height 1s; */
-    /* transition: max-height 1s; */
-
 }
 .label {
     margin-top: 30px;
@@ -61,15 +52,7 @@ body {
 .card.expanded .label {
     transform: translateY(0);
 }
-/* .text-content {
-  transform: translateY(-160px);
-  transition: transform 1000ms;
-}
-.card.expanded .text-content {
-  transform: translateY(-15px);
-} */
 .chevron {
-    /* position: absolute; */
     margin-top: 10px;
     margin-bottom: 10px;
     bottom: 20px;
@@ -90,81 +73,27 @@ body {
     padding: 0 20px;
 }
 
-.text {
-    display: none;
-    transition: display 2s;
-}
-.text.displayed {
-    display: block;
-}
-
 .image {
     border: transparent;
     border-radius: 9px 9px 0px 0px;
     height: 240px;
     width: 240px;
-
 }
-
 .image.expanded {
     border-radius: 0px;
-
 }
 
-.beforeMembers {
+.text, .beforeMembers, .beforeDate, .creationDate, .beforeAlbum, .firstAlbum {
     display: none;
     transition: display 2s;
 }
-
-.beforeMembers.displayed {
+.text.displayed, .beforeMembers.displayed, .beforeDate.displayed, .creationDate.displayed, .beforeAlbum.displayed, .firstAlbum.displayed {
     display: block;
-
-}
-
-.beforeDate {
-    display: none;
-    transition: display 2s;
-}
-
-.beforeDate.displayed {
-    display: block;
-
-}
-
-.creationDate {
-    display: none;
-    transition: display 2s;
-}
-
-.creationDate.displayed {
-    display: block;
-
-}
-
-.beforeAlbum {
-    display: none;
-    transition: display 2s;
-}
-
-.beforeAlbum.displayed {
-    display: block;
-
-}
-
-.firstAlbum {
-    display: none;
-    transition: display 2s;
-}
-
-.firstAlbum.displayed {
-    display: block;
-
 }
 
 .members {
     margin-top: 10px;
     display: none;
-    /* margin-bottom: 50px; */
 }
 .members.displayed {
     display: block;
