@@ -1,41 +1,24 @@
 const searchBar = document.getElementById('searchBar');
-let hpCharacters = [];
+let cards = document.querySelectorAll('.card');
+
+for (const card of cards) {
+    card.remove();
+}
 
 searchBar.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
 
-    const filteredCharacters = hpCharacters.filter((character) => {
+    const filteredCards = cards.filter((card) => {
         return (
-            character.name.toLowerCase().includes(searchString) ||
-            character.house.toLowerCase().includes(searchString)
+            card.querySelector('.text .text-content .title').innerText.toLowerCase().includes(searchString)
         );
     });
-    displayCharacters(filteredCharacters);
+    displayCards(filteredCards);
 });
 
-const loadCharacters = async () => {
-    try {
-        const res = await fetch('https://groupietrackers.herokuapp.com/api/artists');
-        hpCharacters = await res.json();
-        displayCharacters(hpCharacters);
-    } catch (err) {
-        console.error(err);
+const displayCards = (cards) => {
+    let divCards = document.querySelector('.cards');
+    for (const card of cards) {
+        divCards.appendChild(card)
     }
 };
-
-const displayCharacters = (characters) => {
-    const htmlString = characters
-        .map((character) => {
-            return `
-            <li class="character">
-                <h2>${character.name}</h2>
-                <p>House: ${character.house}</p>
-                <img src="${character.image}"></img>
-            </li>
-        `;
-        })
-        .join('');
-    charactersList.innerHTML = htmlString;
-};
-
-loadCharacters();
