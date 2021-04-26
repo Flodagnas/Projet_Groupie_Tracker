@@ -13,6 +13,16 @@ searchBar.addEventListener('keyup', (e) => {
     displayCharacters(filteredCharacters);
 });
 
+const loadCharacters = async () => {
+    try {
+        const res = await fetch('https://groupietrackers.herokuapp.com/api/artists');
+        hpCharacters = await res.json();
+        displayCharacters(hpCharacters);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 const displayCharacters = (characters) => {
     const htmlString = characters
         .map((character) => {
