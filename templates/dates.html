@@ -21,49 +21,20 @@
             <a href="/locations" class="link">Villes</a>
         </nav>
     </div>
-    <div class="main">
-        <div class="demo_wrap">
-            <h1>Viens Choisir les dates auquelle tu voudris participer !</h1>
-            <article id="left">
-                <p class="left"></p>
-                <p class="left"></p>
-                <p class="left"></p>
-            </article>
-            <section id="principal">
-                <aside class="locations">
-                    <article id="d-concert">
-                        <div class="text">
-                            <div class="section_titre">
-                                <h2>Dernier concert</h2>
-                            </div>
-                            <div class="section_text">
-                                <span class="section_text">Le: "insérer la date"</span>
-                                <br>
-                                <span class="section_text">Où: "insérer le lieu"</span>
-                            </div>
-                        </div>
-                    </article>
-                </aside>
-                    <aside class="locations">
-                    <article id="p-concert">
-                        <div class="text">
-                            <div class="section_titre">
-                                <h2>Futur concert</h2>
-                            </div>
-                            <div class="section_text">
-                                <span class="section_text">Le: "insérer la date"</span>
-                                <br>
-                                <span class="section_text">Où: "insérer le lieu"</span>
-                            </div>
-                        </div>
-                    </article>
-                </aside>
-            </section>
-            <article id="right">
-                <p class="right"></p>
-                <p class="right"></p>
-            </article>
+    <body>
+        <div class="container">
+            <h1>&#x2728;Voici les dates de vos concert preferer ! &#x2728;</h1>
+            <div id="searchWrapper">
+                <input
+                    type="text"
+                    name="searchBar"
+                    id="searchBar"
+                    placeholder="search for a character"
+                />
+            </div>
+            <ul id="charactersList"></ul>
         </div>
+        <script src="app.js"></script>
     <h1>Page dates</h1>
     <a href="/home">Go Home</a>
     <a href="/artists">Display artists</a>
