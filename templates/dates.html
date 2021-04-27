@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/navbar.css">
     <link rel="stylesheet" href="../static/css/dates.css">
     <title>Dates</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../static/src/logo.png">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
 </head>
 <body>
     <div class="navbar">
@@ -24,24 +36,30 @@
     <body>
         <div class="container">
             <h1>&#x2728;Voici les dates de vos concert preferer ! &#x2728;</h1>
-            <div id="searchWrapper">
-                <input
-                    type="text"
-                    name="searchBar"
-                    id="searchBar"
-                    placeholder="search for a character"
-                />
             </div>
-            <ul id="charactersList"></ul>
-        </div>
-        <script src="app.js"></script>
-    <h1>Page dates</h1>
-    <a href="/home">Go Home</a>
-    <a href="/artists">Display artists</a>
-    <a href="/locations">Display locations</a>
-    <script>
-        let responseData = '{{.ResponseData}}'
-    </script>
-    <script src="../js/display.js" defer></script>
+            <div class="container">
+                <div class="calendar">
+                  <div class="month">
+                    <i class="fas fa-angle-left prev"></i>
+                    <div class="date">
+                      <h1></h1>
+                      <p></p>
+                    </div>
+                    <i class="fas fa-angle-right next"></i>
+                  </div>
+                  <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                  </div>
+                  <div class="days"></div>
+                </div>
+              </div>
+          
+              <script src="script.js"></script>
 </body>
 </html>
