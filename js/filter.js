@@ -10,9 +10,10 @@ document.querySelectorAll('.card').forEach(card => {
 // Liste à choix des catégories
 document.querySelector('#filterSelect').addEventListener('change', () => {
     filter(document.querySelector('#filterSelect').value)
+    filterCards(cards)
 })
 
-// Fonction de filtrage des cartes
+// Fonction de tri des cartes
 function filter(filterSelect) {
 
     if (filterSelect == '0') {
