@@ -7,7 +7,7 @@
     <title>Locations</title>
     <link rel="stylesheet" href="static/css/locations.css">
     <link rel="stylesheet" href="static/css/navbar.css">
-    <script src="../static/js/display.js" defer></script>
+    
 </head>
 <body>
     <header>
@@ -24,7 +24,9 @@
     </nav>
     <br>
     <div id="reglage">
-        
+        <select id="name">
+
+        </select>
     </div>
     <section id="section">
         <aside class="locations">
@@ -56,5 +58,9 @@
             </article>
         </aside>
     </section>
+    <script>
+        let responseData = '{{.ResponseData}}'
+    </script>
+    <script src="../static/js/display.js" defer></script>
 </body>
 </html>

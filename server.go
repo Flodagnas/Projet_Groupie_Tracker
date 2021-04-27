@@ -66,12 +66,13 @@ func dates(w http.ResponseWriter, req *http.Request) {
 }
 
 func locations(w http.ResponseWriter, req *http.Request) {
+	data.ResponseData = loadAPI()
 	tLocations, err := template.ParseFiles("templates/locations.html")
 	if err != nil {
 		w.WriteHeader(400)
 	}
 
-	tLocations.Execute(w, nil)
+	tLocations.Execute(w, data)
 }
 
 func loadAPI() string {
