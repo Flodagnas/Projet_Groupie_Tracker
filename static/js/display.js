@@ -8,8 +8,8 @@ function loadData(artists) {
     }
 }
 
-function location(artists) {
-    var items = [];
+function geo(artists) {
+    artists = JSON.parse(artists)
     for (var valeur in artists['name']) {
         var variable = artists['name'][valeur];
 
@@ -20,6 +20,8 @@ function location(artists) {
         }
 
     };
+    console.log(variable);
 };
 
 loadData(responseData)
+geo(responseData)
