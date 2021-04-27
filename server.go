@@ -10,10 +10,13 @@ import (
 var t *template.Template
 
 type dataStruct struct {
-	ResponseData string
+	artists string
+	relations string
 }
 
 var data dataStruct
+data.artists = loadArtists()
+data.relations = loadRelations()
 
 func main() {
 	t = template.Must(template.ParseFiles("templates/index.html"))
@@ -47,7 +50,6 @@ func home(w http.ResponseWriter, req *http.Request) {
 }
 
 func artists(w http.ResponseWriter, req *http.Request) {
-	data.ResponseData = loadAPI()
 	tArtists, err := template.ParseFiles("templates/artists.html")
 	if err != nil {
 		w.WriteHeader(400)
@@ -74,8 +76,23 @@ func locations(w http.ResponseWriter, req *http.Request) {
 	tLocations.Execute(w, nil)
 }
 
-func loadAPI() string {
+func loadArtists() string {
 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+
+	if errGet != nil {
+		log.Fatal(errGet)
+	}
+
+	responseData, errReadAll := ioutil.ReadAll(response.Body)
+	if errReadAll != nil {
+		log.Fatal(errReadAll)
+	}
+
+	return string(responseData)
+}
+
+func loadRelations() string {
+	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
 	if errGet != nil {
 		log.Fatal(errGet)
