@@ -1,5 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:wght@300;400;500;700');
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(224, 224, 224);
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:900');
 .cards {
     align-items: center;
     display: flex;
@@ -18,13 +26,12 @@
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     cursor: pointer;
-    height: 280px;
+    max-height: 300px;
     margin: 20px;
-    padding: 0 20px;
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0.025);
     text-align: center;
-    transition: height 1s;
+    transition: max-height 1s;
     width: 240px;
     opacity: 0.8;
 }
@@ -35,7 +42,7 @@
     }
 }
 .card.expanded {
-    height: 600px;
+    max-height: 800px;
 }
 .label {
     margin-top: 30px;
@@ -45,9 +52,9 @@
 .card.expanded .label {
     transform: translateY(0);
 }
-
 .chevron {
-    position: absolute;
+    margin-top: 10px;
+    margin-bottom: 10px;
     bottom: 20px;
     left: calc(50% - 15px);
     transform-origin: 50%;
@@ -66,16 +73,26 @@
     padding: 0 20px;
 }
 
-.text {
+.image {
+    border: transparent;
+    border-radius: 9px 9px 0px 0px;
+    height: 240px;
+    width: 240px;
+}
+.image.expanded {
+    border-radius: 0px;
+}
+
+.text, .beforeMembers, .beforeDate, .creationDate, .beforeAlbum, .firstAlbum {
     display: none;
     transition: display 2s;
 }
-.text.displayed {
+.text.displayed, .beforeMembers.displayed, .beforeDate.displayed, .creationDate.displayed, .beforeAlbum.displayed, .firstAlbum.displayed {
     display: block;
 }
 
 .members {
-    margin-top: 320px;
+    margin-top: 10px;
     display: none;
 }
 .members.displayed {
