@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-var t *template.Template
+var t = template.Template
 
 type dataStruct struct {
 	ResponseData string
