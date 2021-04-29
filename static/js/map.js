@@ -10,3 +10,11 @@ document.getElementById('ville-elem').addEventListener('change', () => {
     console.log(select)
     map()
 })
+function relations(artists) {
+    artists = JSON.parse(artists)
+    for (let artist of artists) {
+        let relation = artist['relation']
+        document.getElementById('section_text1').insertAdjacentHTML('beforeEnd',relation);
+    };
+    map
+};
