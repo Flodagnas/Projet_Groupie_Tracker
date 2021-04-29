@@ -97,10 +97,10 @@ func loadAPIRelations() string {
 		log.Fatal(errGet)
 	}
 
-	responseData2, errReadAll := ioutil.ReadAll(response.Body)
+	responseData, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
 
-	return string(responseData2)
+	return string(responseData)
 }
