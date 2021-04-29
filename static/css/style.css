@@ -80,6 +80,8 @@ body {
 }
 .card.expanded .chevron {
     transform: rotate(0deg);
+    margin-top: 40px;
+
 }
 .title {
     font-family: 'Alegreya Sans', sans-serif;
@@ -114,6 +116,8 @@ body {
 .beforeMembers {
     display: none;
     transition: display 2s;
+    font-weight: Bold;
+
 }
 
 .beforeMembers.displayed {
@@ -124,10 +128,12 @@ body {
 .beforeDate {
     display: none;
     transition: display 2s;
+    font-weight: Bold;
 }
 
 .beforeDate.displayed {
     display: block;
+
 
 }
 
@@ -144,6 +150,7 @@ body {
 .beforeAlbum {
     display: none;
     transition: display 2s;
+    font-weight: Bold;
 }
 
 .beforeAlbum.displayed {
@@ -159,6 +166,36 @@ body {
 .firstAlbum.displayed {
     display: block;
 
+}
+
+.datesButton {
+    display: none;
+    transition: display 2s;
+    border-radius: 15px;
+    position: absolute;
+    margin-left: 25px;
+
+}
+
+.datesButton.displayed {
+    /* display: block; */
+    display: flex;
+
+}
+
+.locationButton {
+    display: none;
+    transition: display 2s;
+    border-radius: 15px;
+    position: absolute;
+    margin-left: 150px;
+    text-align: center;
+
+}
+
+.locationButton.displayed {
+    /* display: block; */
+    display: flex;
 }
 
 .members {
