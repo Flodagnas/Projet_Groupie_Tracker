@@ -1,24 +1,34 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
+	"strconv"
 )
 
 var t *template.Template
 
 type dataStruct struct {
-	artists string
-	relations string
+	Artists   string
+	Relations string
+}
+
+type Pagination struct {
+	elements int
+	page     int
 }
 
 var data dataStruct
-data.artists = loadArtists()
-data.relations = loadRelations()
+var pagination Pagination
 
 func main() {
+	pagination.elements = 0
+	pagination.page = 1
+
 	t = template.Must(template.ParseFiles("templates/index.html"))
 	// Importation des fichiers statiques :
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
@@ -50,6 +60,37 @@ func home(w http.ResponseWriter, req *http.Request) {
 }
 
 func artists(w http.ResponseWriter, req *http.Request) {
+	data.Artists = loadArtists()
+
+	if req.Method == "POST" {
+		req.ParseForm()
+
+		if req.FormValue("buttonPrevious") == "previous" {
+			fmt.Println(pagination.elements, "previous")
+			if pagination.page != 1 {
+				pagination.page--
+			}
+
+		} else if req.FormValue("buttonNext") == "next" {
+			fmt.Println(pagination.elements, "next")
+			if pagination.page < 52/pagination.elements+1 {
+				pagination.page++
+			}
+
+		} else if req.FormValue("paginationSelect") != "" {
+			fmt.Println(req.FormValue("paginationSelect"))
+			val, err := strconv.Atoi(req.FormValue("paginationSelect"))
+			if err != nil {
+				fmt.Println(err.Error())
+				os.Exit(0)
+			}
+			pagination.elements = val
+			pagination.page = 1
+		}
+
+		applyPagination(pagination.elements, pagination.page)
+	}
+
 	tArtists, err := template.ParseFiles("templates/artists.html")
 	if err != nil {
 		w.WriteHeader(400)
@@ -104,4 +145,29 @@ func loadRelations() string {
 	}
 
 	return string(responseData)
+}
+
+func applyPagination(elements int, page int) {
+	if elements != 0 {
+		artistsRune := []rune(data.Artists)
+		var min int = 0
+		var max int = 0
+		for i := range artistsRune {
+
+			if elements == max {
+				max = i
+				break
+			}
+
+			if artistsRune[i] == 123 {
+				min++
+			}
+
+			if artistsRune[i] == 125 {
+				max++
+			}
+		}
+		fmt.Println(string(artistsRune[:max]) + "]")
+		data.Artists = string(artistsRune[:max]) + "]"
+	}
 }

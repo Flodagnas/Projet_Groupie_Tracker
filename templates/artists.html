@@ -22,12 +22,7 @@
         </nav>
     </div>
     
-    <div>
-        <h1>Artist - Groupie Tracker</h1>
-        <a href="/home">Go Home</a>
-        <a href="/dates">Display dates</a>
-        <a href="/locations">Display locations</a>
-    </div>
+    <h1>Artist - Groupie Tracker</h1>
     
     </select>
     <div class="search">
@@ -53,14 +48,27 @@
         <option value="8">Creation oldest</option>
     </select>
 
+    <form id="paginationForm" action="" method="post">
+        <select name="paginationSelect" id="pagintationSelect" onchange="this.form.submit()">
+            <option value="0">All</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+        </select>
+    </form>
+
     <div id="content">
         <div class="cards">
 
         </div>
+        <button type="submit" name="buttonPrevious" form="paginationForm" value="previous">Previous</button>
+        <button type="submit" name="buttonNext" form="paginationForm" value="next">Next</button>
     </div>
 
+    
     <script>
-        let responseData = '{{.ResponseData}}'
+        let responseData = '{{.Artists}}'
     </script>
     <script src="../js/display.js" defer></script>
     <script src="../js/filter.js" defer></script>
