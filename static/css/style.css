@@ -172,8 +172,12 @@ body {
     display: none;
     transition: display 2s;
     border-radius: 15px;
+    border: 0px;
     position: absolute;
     margin-left: 25px;
+    background: -moz-linear-gradient(45deg, rgb(149, 153, 88) 0%, rgb(243, 214, 47) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(149, 153, 88) 0%,rgb(243, 214, 47) 100%);
+    /* background: linear-gradient(45deg, rgb(45, 45, 45) 0%,rgb(243, 214, 47) 100%) */
 
 }
 
@@ -187,9 +191,13 @@ body {
     display: none;
     transition: display 2s;
     border-radius: 15px;
+    border: 0px;
     position: absolute;
     margin-left: 150px;
     text-align: center;
+    background: -moz-linear-gradient(45deg, rgb(149, 153, 88) 0%, rgb(243, 214, 47) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(149, 153, 88) 0%,rgb(243, 214, 47) 100%);
+    /* background: linear-gradient(45deg, rgb(45, 45, 45) 0%,rgb(243, 214, 47) 100%) */
 
 }
 
