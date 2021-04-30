@@ -178,6 +178,15 @@ body {
     background: -moz-linear-gradient(45deg, rgb(149, 153, 88) 0%, rgb(243, 214, 47) 100%);
     background: -webkit-linear-gradient(45deg, rgb(149, 153, 88) 0%,rgb(243, 214, 47) 100%);
     /* background: linear-gradient(45deg, rgb(45, 45, 45) 0%,rgb(243, 214, 47) 100%) */
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+
+}
+
+.datesButton:hover {
+    background: -moz-linear-gradient(45deg, rgb(112, 116, 66) 0%, rgb(163, 143, 29) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(94, 97, 55) 0%,rgb(187, 164, 36) 100%);
 
 }
 
@@ -193,11 +202,28 @@ body {
     border-radius: 15px;
     border: 0px;
     position: absolute;
-    margin-left: 150px;
+    margin-left: 155px;
     text-align: center;
     background: -moz-linear-gradient(45deg, rgb(149, 153, 88) 0%, rgb(243, 214, 47) 100%);
     background: -webkit-linear-gradient(45deg, rgb(149, 153, 88) 0%,rgb(243, 214, 47) 100%);
     /* background: linear-gradient(45deg, rgb(45, 45, 45) 0%,rgb(243, 214, 47) 100%) */
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+
+
+
+}
+
+.locationButton:hover {
+    background: -moz-linear-gradient(45deg, rgb(112, 116, 66) 0%, rgb(163, 143, 29) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(94, 97, 55) 0%,rgb(187, 164, 36) 100%);
+
+}
+
+.locationButton:focus {
+    border: 3px;
+    border: black;
 
 }
 
