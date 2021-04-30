@@ -65,6 +65,18 @@ function makeCard(artist) {
     title.className = 'title'
     let bodyText = document.createElement('div')
     bodyText.className = 'body-text'
+
+    let datesButton = document.createElement('button')
+    // let inDatesText = document.createElement('p')
+    datesButton.innerText += "Dates"
+    // datesButton.appendChild(inDatesText)
+    datesButton.className = 'datesButton'
+    let locationButton = document.createElement('button')
+    // let inlocationText = document.createElement('p')
+    locationButton.innerText += "Location"
+    // locationButton.appendChild(inlocationText)
+    locationButton.className = 'locationButton'
+
     card.appendChild(text)
     card.appendChild(image)
     card.appendChild(beforeMembers)
@@ -76,6 +88,8 @@ function makeCard(artist) {
     card.appendChild(creationDate)
     card.appendChild(beforeAlbum)
     card.appendChild(firstAlbum)
+    card.appendChild(datesButton)
+    card.appendChild(locationButton)
     card.innerHTML += `<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>`
     document.querySelector('.cards').appendChild(card)
 
@@ -94,6 +108,9 @@ function cardOnClick(el) {
     el.querySelector('.creationDate').classList.toggle('displayed')
     el.querySelector('.beforeAlbum').classList.toggle('displayed')
     el.querySelector('.firstAlbum').classList.toggle('displayed')
+    el.querySelector('.datesButton').classList.toggle('displayed')
+    el.querySelector('.locationButton').classList.toggle('displayed')
+
 }
 
 loadData(responseData)
