@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../static/css/navbar.css">
@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../static/src/logo.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dates.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -19,44 +18,85 @@
     />
 </head>
 <body>
-    <div class="navbar">
-        <h1>Groupie Tracker</h1>
-        <h4>All you want to know about concerts</h4>
-        <nav class="tabs">
-            <div class="selector"></div>
-            <a href="/home"  class="link">Accueil</a>
-            <a href="/artists" class="link">Artistes</a>
-            <a href="#" class="link active">Dates</a>
-            <a href="/locations" class="link">Villes</a>
-        </nav>
+  <div class="navbar">
+    <h1>Groupie Tracker</h1>
+    <h4>All you want to know about concerts</h4>
+    <nav class="tabs">
+        <div class="selector"></div>
+        <a href="/home"  class="link">Accueil</a>
+        <a href="/artists" class="link">Artistes</a>
+        <a href="#" class="link active">Dates</a>
+        <a href="/locations" class="link">Villes</a>
+    </nav>
+  </div>
+  <div class="container">
+    <h1>&#x2728;Voici les dates de vos concert preferer ! &#x2728;</h1>
+  </div>
+  <div class="container">
+    <div class="calendar">
+      <div class="month">
+      <i class="fas fa-angle-left prev"></i>
+      <div class="date">
+      <h1>Mai</h1>
+      <p>Vendredi 30 Mai, 2021</p>
+      </div>
+      <i class="fas fa-angle-right next"></i>
+      </div>
+      <div class="weekdays">
+        <div>Lun</div>
+        <div>Mar</div>
+        <div>Mer</div>
+        <div>Jeu</div>
+        <div>Ven</div>
+        <div>Sam</div>
+        <div>Dim</div>
+      </div>
+      <div class="days"></div>
+        <div class="prev-date">26</div>
+        <div class="prev-date">27</div>
+        <div class="prev-date">28</div>
+        <div class="prev-date">29</div>
+        <div class="prev-date">30</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+        <div>21</div>
+        <div>22</div>
+        <div>23</div>
+        <div>24</div>
+        <div>25</div>
+        <div>26</div>
+        <div>27</div>
+        <div>28</div>
+        <div>29</div>
+        <div>30</div>
+        <div>31</div>
+        <div class="next-dates">1</div>
+        <div class="next-dates">2</div>
+        <div class="next-dates">3</div>
+        <div class="next-dates">4</div>
+        <div class="next-dates">5</div>
+        <div class="next-dates">6</div>
+      </div>
     </div>
-    <body>
-        <div class="container">
-            <h1>&#x2728;Voici les dates de vos concert preferer ! &#x2728;</h1>
-            </div>
-            <div class="container">
-              <div class="calendar">
-                <div class="month">
-                  <i class="fas fa-angle-left prev"></i>
-                  <div class="date">
-                    <h1></h1>
-                    <p></p>
-                  </div>
-                  <i class="fas fa-angle-right next"></i>
-                </div>
-                <div class="weekdays">
-                  <div>Lun</div>
-                  <div>Mar</div>
-                  <div>Mer</div>
-                  <div>Jeu</div>
-                  <div>Ven</div>
-                  <div>Sam</div>
-                  <div>Dim</div>
-                </div>
-                <div class="days"></div>
-              </div>
-            </div>
-        
-            <script src="dates.js"></script>
-          </body>
-        </html>
+    </div>
+    <script src="dates.js"></script>
+  </body>
+</html>
