@@ -21,37 +21,43 @@
             <a href="/locations" class="link">Villes</a>
         </nav>
     </div>
-    
-    <div>
-        <h1>Artist - Groupie Tracker</h1>
-        <a href="/home">Go Home</a>
-        <a href="/dates">Display dates</a>
-        <a href="/locations">Display locations</a>
-    </div>
-    
-    </select>
-    <div class="search">
-        <label for="searchInput">Search</label>
-        <input type="text" name="searchInput" id="searchInput">
-        <select name="searchSelect" id="searchSelect">
-            <option value="name">Name</option>
-            <option value="biography.fullName">Full name - Members</option>
+
+    <div id="selectDiv">
+
+        <div class="lineDiv"></div>
+
+        <h1 id="title">Artist - Groupie Tracker</h1>
+        
         </select>
+        <div class="search" >
+            <input type="text" name="searchInput" id="searchInput" placeholder="Search">
+            <select name="searchSelect" id="searchSelect">
+                <option value="name">Name</option>
+                <option value="biography.fullName">Full name - Members</option>
+            </select>
+        </div>
+
+        <br>
+
+        <select name="filterSelect" id="filterSelect">
+            <option value="0">Apply filter</option>
+            <option value="1">A - Z</option>
+            <option value="2">Z - A</option>
+            <option value="3">Place A - Z</option>
+            <option value="4">Place Z - A</option>
+            <option value="5">1st Album newest</option>
+            <option value="6">1st Album oldest</option>
+            <option value="7">Creation newest</option>
+            <option value="8">Creation oldest</option>
+        </select>
+
+        <select name="paginationSelect" id="paginationSelect">
+            <option>pagination</option>
+        </select>
+
+        <div class="lineDiv"></div>
+
     </div>
-
-    <br>
-
-    <select name="filterSelect" id="filterSelect">
-        <option value="0">---- Apply filter ----</option>
-        <option value="1">A - Z</option>
-        <option value="2">Z - A</option>
-        <option value="3">Place A - Z</option>
-        <option value="4">Place Z - A</option>
-        <option value="5">1st Album newest</option>
-        <option value="6">1st Album oldest</option>
-        <option value="7">Creation newest</option>
-        <option value="8">Creation oldest</option>
-    </select>
 
     <div id="content">
         <div class="cards">
