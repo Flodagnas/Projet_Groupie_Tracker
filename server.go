@@ -11,6 +11,7 @@ var t *template.Template
 
 type dataStruct struct {
 	ResponseData string
+	ResponseRelation string
 }
 
 var data dataStruct
@@ -67,6 +68,7 @@ func dates(w http.ResponseWriter, req *http.Request) {
 
 func locations(w http.ResponseWriter, req *http.Request) {
 	data.ResponseData = loadAPI()
+	data.ResponseRelation = loadAPIRelations()
 	tLocations, err := template.ParseFiles("templates/locations.html")
 	if err != nil {
 		w.WriteHeader(400)
@@ -97,10 +99,10 @@ func loadAPIRelations() string {
 		log.Fatal(errGet)
 	}
 
-	responseData, errReadAll := ioutil.ReadAll(response.Body)
+	responseRelation, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
 
-	return string(responseData)
+	return string(responseRelation)
 }
