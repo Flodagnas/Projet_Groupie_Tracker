@@ -5,7 +5,6 @@ body {
     background-color: rgb(224, 224, 224);
 }
 
-
 .search {
     display: flex;
     justify-content: center;
@@ -27,7 +26,6 @@ body {
 #title {
     margin-left: 1%;
     margin-bottom: 30px;
-
 }
 
 #searchInput {
@@ -39,7 +37,6 @@ body {
     margin-left: 1%;
     margin-bottom: 10px;
     box-shadow:0px 5px 20px rgba(0,0,0,0.1);
-
 }
 
 #searchSelect {
@@ -51,7 +48,6 @@ body {
     padding-right: 10px;
     outline: none;
     margin-left: 1%;
-
 }
 
 #filterSelect {
@@ -63,8 +59,6 @@ body {
     padding-right: 10px;
     outline: none;
     margin-left: 1%;
-
-
 }
 
 #paginationSelect {
@@ -76,11 +70,7 @@ body {
     padding-right: 10px;
     outline: none;
     margin-left: 1%;
-
-
 }
-
-
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:900');
 .cards {
@@ -101,15 +91,11 @@ body {
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     cursor: pointer;
-    /* height: 280px; */
-    /* min-height: 0px; */
     max-height: 300px;
     margin: 20px;
-    /* padding: 0 20px; */
     position: relative;
     -webkit-tap-highlight-color: rgba(0,0,0,0.025);
     text-align: center;
-    /* transition: height 1s; */
     transition: max-height 1s;
     width: 240px;
     opacity: 0.8;
@@ -121,30 +107,18 @@ body {
     }
 }
 .card.expanded {
-    /* height: 600px; */
-    /* height: fit-content; */
     max-height: 800px;
-    /* transition: height 1s; */
-    /* transition: max-height 1s; */
-
+}
+.card.expanded .label {
+    transform: translateY(0);
 }
 .label {
     margin-top: 30px;
     transform: translateY(10px);
     transition: transform 1000ms;
 }
-.card.expanded .label {
-    transform: translateY(0);
-}
-/* .text-content {
-  transform: translateY(-160px);
-  transition: transform 1000ms;
-}
-.card.expanded .text-content {
-  transform: translateY(-15px);
-} */
+
 .chevron {
-    /* position: absolute; */
     margin-top: 10px;
     margin-bottom: 10px;
     bottom: 20px;
@@ -167,80 +141,31 @@ body {
     padding: 0 20px;
 }
 
-.text {
-    display: none;
-    transition: display 2s;
-}
-.text.displayed {
-    display: block;
-}
-
 .image {
     border: transparent;
     border-radius: 9px 9px 0px 0px;
     height: 240px;
     width: 240px;
-
 }
-
 .image.expanded {
     border-radius: 0px;
-
 }
 
+.text, .beforeMembers, .beforeDate, .creationDate, .beforeAlbum, .firstAlbum {
+    display: none;
+    transition: display 2s;
+}
+.text.displayed, .beforeMembers.displayed, .beforeDate.displayed, .creationDate.displayed, .beforeAlbum.displayed, .firstAlbum.displayed {
+    display: block;
+}
 .beforeMembers {
-    display: none;
-    transition: display 2s;
     font-weight: Bold;
-
 }
-
-.beforeMembers.displayed {
-    display: block;
-
-}
-
 .beforeDate {
-    display: none;
-    transition: display 2s;
     font-weight: Bold;
 }
-
-.beforeDate.displayed {
-    display: block;
-
-
-}
-
-.creationDate {
-    display: none;
-    transition: display 2s;
-}
-
-.creationDate.displayed {
-    display: block;
-
-}
-
 .beforeAlbum {
-    display: none;
-    transition: display 2s;
     font-weight: Bold;
-}
-
-.beforeAlbum.displayed {
-    display: block;
-
-}
-
-.firstAlbum {
-    display: none;
-    transition: display 2s;
-}
-
-.firstAlbum.displayed {
-    display: block;
-
 }
 
 .datesButton {
@@ -252,23 +177,16 @@ body {
     margin-left: 25px;
     background: -moz-linear-gradient(45deg, rgb(149, 153, 88) 0%, rgb(243, 214, 47) 100%);
     background: -webkit-linear-gradient(45deg, rgb(149, 153, 88) 0%,rgb(243, 214, 47) 100%);
-    /* background: linear-gradient(45deg, rgb(45, 45, 45) 0%,rgb(243, 214, 47) 100%) */
     padding: 5px;
     cursor: pointer;
     color: white;
-
 }
-
 .datesButton:hover {
     background: -moz-linear-gradient(45deg, rgb(112, 116, 66) 0%, rgb(163, 143, 29) 100%);
     background: -webkit-linear-gradient(45deg, rgb(94, 97, 55) 0%,rgb(187, 164, 36) 100%);
-
 }
-
 .datesButton.displayed {
-    /* display: block; */
     display: flex;
-
 }
 
 .locationButton {
@@ -281,36 +199,27 @@ body {
     text-align: center;
     background: -moz-linear-gradient(45deg, rgb(149, 153, 88) 0%, rgb(243, 214, 47) 100%);
     background: -webkit-linear-gradient(45deg, rgb(149, 153, 88) 0%,rgb(243, 214, 47) 100%);
-    /* background: linear-gradient(45deg, rgb(45, 45, 45) 0%,rgb(243, 214, 47) 100%) */
     padding: 5px;
     cursor: pointer;
     color: white;
-
-
-
 }
-
 .locationButton:hover {
     background: -moz-linear-gradient(45deg, rgb(112, 116, 66) 0%, rgb(163, 143, 29) 100%);
     background: -webkit-linear-gradient(45deg, rgb(94, 97, 55) 0%,rgb(187, 164, 36) 100%);
 
 }
-
 .locationButton:focus {
     border: 3px;
     border: black;
 
 }
-
 .locationButton.displayed {
-    /* display: block; */
     display: flex;
 }
 
 .members {
     margin-top: 10px;
     display: none;
-    /* margin-bottom: 50px; */
 }
 .members.displayed {
     display: block;
