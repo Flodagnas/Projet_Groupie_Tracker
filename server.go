@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"io/ioutil"
@@ -11,6 +12,25 @@ import (
 )
 
 var t *template.Template
+
+type artistStruct struct {
+	Id           int      `json:"id"`
+	Image        string   `json:"image"`
+	Name         string   `json:"name"`
+	Members      []string `json:"members"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`
+	Locations    string   `json:"locations"`
+	ConcertDates string   `json:"concertDates"`
+	Relations    string   `json:"relations"`
+}
+type relationStruct struct {
+	Id             int      `json:"id"`
+	DatesLocations struct{} `json:"datesLocations"`
+}
+
+var artistsData []artistStruct
+var relationsData []relationStruct
 
 type dataStruct struct {
 	Artists   string
@@ -45,6 +65,10 @@ func main() {
 	http.HandleFunc("/locations", locations)
 	http.Handle("/locations/", http.NotFoundHandler())
 
+	// Accès aux données :
+	http.HandleFunc("/api/artists", artistsAPI)
+	// http.HandleFunc("/api/relations", relationsAPI)
+
 	// Port :
 	http.ListenAndServe(":8000", nil)
 }
@@ -60,25 +84,28 @@ func home(w http.ResponseWriter, req *http.Request) {
 }
 
 func artists(w http.ResponseWriter, req *http.Request) {
-	data.Artists = loadArtists()
+
+	// data.Artists = loadArtists()
 
 	if req.Method == "POST" {
 		req.ParseForm()
 
-		if req.FormValue("buttonPrevious") == "previous" {
-			fmt.Println(pagination.elements, "previous")
+		if req.FormValue("buttonPrevious") == "Previous" {
+			// fmt.Println(pagination.elements, "previous")
 			if pagination.page != 1 {
 				pagination.page--
 			}
 
-		} else if req.FormValue("buttonNext") == "next" {
-			fmt.Println(pagination.elements, "next")
-			if pagination.page < 52/pagination.elements+1 {
-				pagination.page++
+		} else if req.FormValue("buttonNext") == "Next" {
+			// fmt.Println(pagination.elements, "next")
+			if pagination.elements != 0 {
+				if pagination.page < 52/pagination.elements+1 {
+					pagination.page++
+				}
 			}
 
 		} else if req.FormValue("paginationSelect") != "" {
-			fmt.Println(req.FormValue("paginationSelect"))
+			// fmt.Println(req.FormValue("paginationSelect"))
 			val, err := strconv.Atoi(req.FormValue("paginationSelect"))
 			if err != nil {
 				fmt.Println(err.Error())
@@ -88,7 +115,6 @@ func artists(w http.ResponseWriter, req *http.Request) {
 			pagination.page = 1
 		}
 
-		applyPagination(pagination.elements, pagination.page)
 	}
 
 	tArtists, err := template.ParseFiles("templates/artists.html")
@@ -117,57 +143,62 @@ func locations(w http.ResponseWriter, req *http.Request) {
 	tLocations.Execute(w, nil)
 }
 
-func loadArtists() string {
+/*-----------------------------------------------------------------------------------*/
+
+func artistsAPI(w http.ResponseWriter, req *http.Request) {
+	w.Header().Add("Content-Type", "application/json")
+	loadArtists()
+	applyPagination(pagination.elements, pagination.page)
+	artistsDataBytes, _ := json.Marshal(artistsData)
+	w.Write(artistsDataBytes)
+}
+
+// func relationsAPI(w http.ResponseWriter, req *http.Request) {
+// 	w.Header().Add("Content-Type", "application/json")
+// 	w.Write(loadRelations())
+// }
+
+func loadArtists() {
 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 
 	if errGet != nil {
 		log.Fatal(errGet)
 	}
 
-	responseData, errReadAll := ioutil.ReadAll(response.Body)
+	responseJson, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
 
-	return string(responseData)
+	errUnmarshal := json.Unmarshal(responseJson, &artistsData)
+	if errUnmarshal != nil {
+		fmt.Println(errUnmarshal)
+		os.Exit(0)
+	}
 }
 
-func loadRelations() string {
-	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/relation")
+// func loadRelations() string {
+// 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
-	if errGet != nil {
-		log.Fatal(errGet)
-	}
+// 	if errGet != nil {
+// 		log.Fatal(errGet)
+// 	}
 
-	responseData, errReadAll := ioutil.ReadAll(response.Body)
-	if errReadAll != nil {
-		log.Fatal(errReadAll)
-	}
+// 	responseJson, errReadAll := ioutil.ReadAll(response.Body)
+// 	if errReadAll != nil {
+// 		log.Fatal(errReadAll)
+// 	}
 
-	return string(responseData)
-}
+// 	return string(responseJson)
+// }
 
 func applyPagination(elements int, page int) {
 	if elements != 0 {
-		artistsRune := []rune(data.Artists)
-		var min int = 0
-		var max int = 0
-		for i := range artistsRune {
-
-			if elements == max {
-				max = i
-				break
-			}
-
-			if artistsRune[i] == 123 {
-				min++
-			}
-
-			if artistsRune[i] == 125 {
-				max++
-			}
+		first := elements * (page - 1)
+		last := elements * page
+		if last > 52 {
+			last = 52
 		}
-		fmt.Println(string(artistsRune[:max]) + "]")
-		data.Artists = string(artistsRune[:max]) + "]"
+		artistsData = artistsData[first:last]
 	}
 }

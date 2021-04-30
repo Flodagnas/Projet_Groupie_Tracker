@@ -50,7 +50,8 @@
 
     <form id="paginationForm" action="" method="post">
         <select name="paginationSelect" id="pagintationSelect" onchange="this.form.submit()">
-            <option value="0">All</option>
+            <option value="">Number of elements</option>
+            <option value="0">All artists</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
@@ -59,16 +60,20 @@
     </form>
 
     <div id="content">
+        <input type="submit" name="buttonPrevious" form="paginationForm" value="Previous">
+        <input type="submit" name="buttonNext" form="paginationForm" value="Next">
         <div class="cards">
 
         </div>
-        <button type="submit" name="buttonPrevious" form="paginationForm" value="previous">Previous</button>
-        <button type="submit" name="buttonNext" form="paginationForm" value="next">Next</button>
+        <input type="submit" name="buttonPrevious" form="paginationForm" value="Previous">
+        <input type="submit" name="buttonNext" form="paginationForm" value="Next">
     </div>
 
     
     <script>
-        let responseData = '{{.Artists}}'
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
     </script>
     <script src="../js/display.js" defer></script>
     <script src="../js/filter.js" defer></script>
