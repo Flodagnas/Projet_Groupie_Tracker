@@ -25,8 +25,8 @@ type artistStruct struct {
 	Relations    string   `json:"relations"`
 }
 type relationStruct struct {
-	Id             int      `json:"id"`
-	DatesLocations struct{} `json:"datesLocations"`
+	Id             int         `json:"id"`
+	DatesLocations interface{} `json:"datesLocations"`
 }
 
 var artistsData []artistStruct
@@ -50,12 +50,13 @@ func main() {
 	pagination.page = 1
 
 	t = template.Must(template.ParseFiles("templates/index.html"))
+
 	// Importation des fichiers statiques :
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
-	http.Handle("/", http.NotFoundHandler())
 
 	// Accès aux pages :
+	http.Handle("/", http.NotFoundHandler())
 	http.HandleFunc("/home", home)
 	http.Handle("/home/", http.NotFoundHandler())
 	http.HandleFunc("/artists", artists)
@@ -65,9 +66,9 @@ func main() {
 	http.HandleFunc("/locations", locations)
 	http.Handle("/locations/", http.NotFoundHandler())
 
-	// Accès aux données :
+	// Accès aux données d'API :
 	http.HandleFunc("/api/artists", artistsAPI)
-	// http.HandleFunc("/api/relations", relationsAPI)
+	http.HandleFunc("/api/relations", relationsAPI)
 
 	// Port :
 	http.ListenAndServe(":8000", nil)
@@ -85,19 +86,15 @@ func home(w http.ResponseWriter, req *http.Request) {
 
 func artists(w http.ResponseWriter, req *http.Request) {
 
-	// data.Artists = loadArtists()
-
 	if req.Method == "POST" {
 		req.ParseForm()
 
 		if req.FormValue("buttonPrevious") == "Previous" {
-			// fmt.Println(pagination.elements, "previous")
 			if pagination.page != 1 {
 				pagination.page--
 			}
 
 		} else if req.FormValue("buttonNext") == "Next" {
-			// fmt.Println(pagination.elements, "next")
 			if pagination.elements != 0 {
 				if pagination.page < 52/pagination.elements+1 {
 					pagination.page++
@@ -105,7 +102,6 @@ func artists(w http.ResponseWriter, req *http.Request) {
 			}
 
 		} else if req.FormValue("paginationSelect") != "" {
-			// fmt.Println(req.FormValue("paginationSelect"))
 			val, err := strconv.Atoi(req.FormValue("paginationSelect"))
 			if err != nil {
 				fmt.Println(err.Error())
@@ -122,7 +118,7 @@ func artists(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(400)
 	}
 
-	tArtists.Execute(w, data)
+	tArtists.Execute(w, nil)
 }
 
 func dates(w http.ResponseWriter, req *http.Request) {
@@ -153,10 +149,12 @@ func artistsAPI(w http.ResponseWriter, req *http.Request) {
 	w.Write(artistsDataBytes)
 }
 
-// func relationsAPI(w http.ResponseWriter, req *http.Request) {
-// 	w.Header().Add("Content-Type", "application/json")
-// 	w.Write(loadRelations())
-// }
+func relationsAPI(w http.ResponseWriter, req *http.Request) {
+	w.Header().Add("Content-Type", "application/json")
+	loadRelations()
+	relationsDataBytes, _ := json.Marshal(relationsData)
+	w.Write(relationsDataBytes)
+}
 
 func loadArtists() {
 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
@@ -177,20 +175,24 @@ func loadArtists() {
 	}
 }
 
-// func loadRelations() string {
-// 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/relation")
+func loadRelations() {
+	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
-// 	if errGet != nil {
-// 		log.Fatal(errGet)
-// 	}
+	if errGet != nil {
+		log.Fatal(errGet)
+	}
 
-// 	responseJson, errReadAll := ioutil.ReadAll(response.Body)
-// 	if errReadAll != nil {
-// 		log.Fatal(errReadAll)
-// 	}
+	responseJson, errReadAll := ioutil.ReadAll(response.Body)
+	if errReadAll != nil {
+		log.Fatal(errReadAll)
+	}
 
-// 	return string(responseJson)
-// }
+	errUnmarshal := json.Unmarshal(responseJson, &relationsData)
+	if errUnmarshal != nil {
+		fmt.Println(errUnmarshal)
+		os.Exit(0)
+	}
+}
 
 func applyPagination(elements int, page int) {
 	if elements != 0 {
@@ -202,3 +204,35 @@ func applyPagination(elements int, page int) {
 		artistsData = artistsData[first:last]
 	}
 }
+
+// func filter(order int) {
+// 	switch {
+// 	case order == 1 || order == 2:
+// 		sort.SliceStable(artistsData, func(i, j int) bool {
+// 			return artistsData[i].Name < artistsData[j].Name
+// 		})
+// 	case order == 3 || order == 4:
+// 		sort.SliceStable(artistsData, func(i, j int) bool {
+// 			return len(artistsData[i].Members) < len(artistsData[j].Members)
+// 		})
+// 	case order == 5 || order == 6:
+// 		sort.SliceStable(artistsData, func(i, j int) bool {
+// 			dateI, _ := time.Parse("2016-01-02", strings.Join(reverseArray(strings.Split(artistsData[i].FirstAlbum, "-")), "-"))
+// 			dateJ, _ := time.Parse("2016-01-02", strings.Join(reverseArray(strings.Split(artistsData[j].FirstAlbum, "-")), "-"))
+// 			dateIms := dateI.UnixNano() / 1000000
+// 			dateJms := dateJ.UnixNano() / 1000000
+// 			return dateIms < dateJms
+// 		})
+// 	case order == 7 || order == 8:
+// 		sort.SliceStable(artistsData, func(i, j int) bool {
+// 			return artistsData[i].CreationDate < artistsData[j].CreationDate
+// 		})
+// 	}
+// }
+
+// func reverseArray(arr []string) []string {
+// 	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
+// 		arr[i], arr[j] = arr[j], arr[i]
+// 	}
+// 	return arr
+// }
