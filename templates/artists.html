@@ -35,18 +35,19 @@
     </div>
 
     <br>
-
-    <select name="filterSelect" id="filterSelect">
-        <option value="0">---- Apply filter ----</option>
-        <option value="1">A - Z</option>
-        <option value="2">Z - A</option>
-        <option value="3">Number of members</option>
-        <option value="4">Number of members (inverse)</option>
-        <option value="5">1st Album newest</option>
-        <option value="6">1st Album oldest</option>
-        <option value="7">Creation newest</option>
-        <option value="8">Creation oldest</option>
-    </select>
+    <form action="" method="post">
+        <select name="filterSelect" id="filterSelect" onchange="this.form.submit()">
+            <option value="0">---- Apply filter ----</option>
+            <option value="1">A - Z</option>
+            <option value="2">Z - A</option>
+            <option value="3">Number of members</option>
+            <option value="4">Number of members (inverse)</option>
+            <option value="5">1st Album newest</option>
+            <option value="6">1st Album oldest</option>
+            <option value="7">Creation newest</option>
+            <option value="8">Creation oldest</option>
+        </select>
+    </form>
 
     <form id="paginationForm" action="" method="post">
         <select name="paginationSelect" id="pagintationSelect" onchange="this.form.submit()">
@@ -76,7 +77,6 @@
         }
     </script>
     <script src="../js/display.js" defer></script>
-    <script src="../js/filter.js" defer></script>
     <script src="../js/search.js" defer></script>
 </body>
 </html>

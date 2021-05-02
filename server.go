@@ -8,7 +8,10 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"sort"
 	"strconv"
+	"strings"
+	"time"
 )
 
 var t *template.Template
@@ -42,12 +45,18 @@ type Pagination struct {
 	page     int
 }
 
+type Filter struct {
+	order int
+}
+
 var data dataStruct
 var pagination Pagination
+var filter Filter
 
 func main() {
 	pagination.elements = 0
 	pagination.page = 1
+	filter.order = -1
 
 	t = template.Must(template.ParseFiles("templates/index.html"))
 
@@ -89,6 +98,7 @@ func artists(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "POST" {
 		req.ParseForm()
 
+		// Formulaire de pagination
 		if req.FormValue("buttonPrevious") == "Previous" {
 			if pagination.page != 1 {
 				pagination.page--
@@ -109,6 +119,12 @@ func artists(w http.ResponseWriter, req *http.Request) {
 			}
 			pagination.elements = val
 			pagination.page = 1
+		}
+
+		// Formulaire de tri/filtrage
+		if req.FormValue("filterSelect") != "" {
+			formValueInt, _ := strconv.Atoi(req.FormValue("filterSelect"))
+			filter.order = formValueInt
 		}
 
 	}
@@ -145,6 +161,7 @@ func artistsAPI(w http.ResponseWriter, req *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 	loadArtists()
 	applyPagination(pagination.elements, pagination.page)
+	applyFilter(filter.order)
 	artistsDataBytes, _ := json.Marshal(artistsData)
 	w.Write(artistsDataBytes)
 }
@@ -205,34 +222,45 @@ func applyPagination(elements int, page int) {
 	}
 }
 
-// func filter(order int) {
-// 	switch {
-// 	case order == 1 || order == 2:
-// 		sort.SliceStable(artistsData, func(i, j int) bool {
-// 			return artistsData[i].Name < artistsData[j].Name
-// 		})
-// 	case order == 3 || order == 4:
-// 		sort.SliceStable(artistsData, func(i, j int) bool {
-// 			return len(artistsData[i].Members) < len(artistsData[j].Members)
-// 		})
-// 	case order == 5 || order == 6:
-// 		sort.SliceStable(artistsData, func(i, j int) bool {
-// 			dateI, _ := time.Parse("2016-01-02", strings.Join(reverseArray(strings.Split(artistsData[i].FirstAlbum, "-")), "-"))
-// 			dateJ, _ := time.Parse("2016-01-02", strings.Join(reverseArray(strings.Split(artistsData[j].FirstAlbum, "-")), "-"))
-// 			dateIms := dateI.UnixNano() / 1000000
-// 			dateJms := dateJ.UnixNano() / 1000000
-// 			return dateIms < dateJms
-// 		})
-// 	case order == 7 || order == 8:
-// 		sort.SliceStable(artistsData, func(i, j int) bool {
-// 			return artistsData[i].CreationDate < artistsData[j].CreationDate
-// 		})
-// 	}
-// }
-
-// func reverseArray(arr []string) []string {
-// 	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
-// 		arr[i], arr[j] = arr[j], arr[i]
-// 	}
-// 	return arr
-// }
+func applyFilter(order int) {
+	switch order {
+	case 0:
+		order = -1
+		break
+	case 1, 2:
+		sort.SliceStable(artistsData, func(i, j int) bool {
+			return artistsData[i].Name < artistsData[j].Name
+		})
+	case 3, 4:
+		sort.SliceStable(artistsData, func(i, j int) bool {
+			return len(artistsData[i].Members) > len(artistsData[j].Members)
+		})
+	case 5, 6:
+		sort.SliceStable(artistsData, func(i, j int) bool {
+			dateI, _ := time.Parse("2006-01-02", strings.Join(reverseArray(strings.Split(artistsData[i].FirstAlbum, "-")), "-"))
+			dateJ, _ := time.Parse("2006-01-02", strings.Join(reverseArray(strings.Split(artistsData[j].FirstAlbum, "-")), "-"))
+			dateIms := dateI.UnixNano() / 1000000
+			dateJms := dateJ.UnixNano() / 1000000
+			return dateIms > dateJms
+		})
+	case 7, 8:
+		sort.SliceStable(artistsData, func(i, j int) bool {
+			return artistsData[i].CreationDate > artistsData[j].CreationDate
+		})
+	}
+	if order%2 == 0 {
+		artistsData = reverseArrayAD(artistsData)
+	}
+}
+func reverseArray(arr []string) []string {
+	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
+		arr[i], arr[j] = arr[j], arr[i]
+	}
+	return arr
+}
+func reverseArrayAD(arr []artistStruct) []artistStruct {
+	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
+		arr[i], arr[j] = arr[j], arr[i]
+	}
+	return arr
+}
