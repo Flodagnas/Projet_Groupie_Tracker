@@ -1,12 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
-}
-
-html {
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
 }
 
 .container {
@@ -17,6 +13,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
 }
 
 .calendar {
@@ -24,6 +21,7 @@ html {
   height: 52rem;
   background-color: #222227;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+  font-family: "Quicksand", sans-serif;
 }
 
 .month {
@@ -36,6 +34,9 @@ html {
   padding: 0 2rem;
   text-align: center;
   text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  font-size: 62.5%;
 }
 
 .month i {
@@ -61,6 +62,8 @@ html {
   padding: 0 0.4rem;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
 }
 
 .weekdays div {
@@ -79,7 +82,9 @@ html {
   display: flex;
   flex-wrap: wrap;
   padding: 0.2rem;
+  box-sizing: border-box;
 }
+
 
 .days div {
   font-size: 1.4rem;
@@ -91,6 +96,7 @@ html {
   align-items: center;
   text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   transition: background-color 0.2s;
+  box-sizing: border-box;
 }
 
 .days div:hover:not(.today) {

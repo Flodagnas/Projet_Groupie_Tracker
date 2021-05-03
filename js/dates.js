@@ -1,14 +1,14 @@
 console.log("Script display loaded")
 
-function loadData(dates) {
-    dates = JSON.parse(dates)
+// function loadData(dates) {
+//     dates = JSON.parse(dates)
 
-    for (date of dates) {
-        makeCard(date)
-    }
-}
+//     for (date of dates) {
+//         makeCard(date)
+//     }
+// }
 
-loadData(responseData)
+// loadData(responseData)
 
 const date = new Date();
 
