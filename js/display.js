@@ -67,14 +67,10 @@ function makeCard(artist) {
     bodyText.className = 'body-text'
 
     let datesButton = document.createElement('button')
-    // let inDatesText = document.createElement('p')
     datesButton.innerText += "Dates"
-    // datesButton.appendChild(inDatesText)
     datesButton.className = 'datesButton'
     let locationButton = document.createElement('button')
-    // let inlocationText = document.createElement('p')
     locationButton.innerText += "Location"
-    // locationButton.appendChild(inlocationText)
     locationButton.className = 'locationButton'
 
     card.appendChild(text)
