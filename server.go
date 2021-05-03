@@ -165,8 +165,8 @@ func locations(w http.ResponseWriter, req *http.Request) {
 func artistsAPI(w http.ResponseWriter, req *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 	loadArtists()
-	applyPagination(pagination.elements, pagination.page)
 	applyFilter(filter.order)
+	applyPagination(pagination.elements, pagination.page)
 	artistsDataBytes, _ := json.Marshal(artistsData)
 	w.Write(artistsDataBytes)
 }
