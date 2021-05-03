@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/navbar.css">
     <link rel="stylesheet" href="../static/css/cards.css">
+    <link rel="stylesheet" href="../static/css/artists.css">
     <title>Artistes</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../static/src/logo.png">
 </head>
@@ -27,8 +28,16 @@
     </select>
     <div class="search">
         <form action="" method="post">
-            <label for="searchInput">Search</label>
-            <input type="text" name="searchInput" id="searchInput" onkeyup="this.form.submit()">
+            <ul>
+                <li>
+                    <input type="text" name="searchInput" id="searchInput" placeholder="Search" autocomplete="off">
+                    <ul class="suggestions">
+                        <!-- {{ range $e := .Artists }}
+                            <li>{{$e}}</li>
+                        {{ end }} -->
+                    </ul>
+                </li>
+            </ul>
             <!-- <select name="searchSelect" id="searchSelect">
                 <option value="name">Name</option>
                 <option value="biography.fullName">Full name - Members</option>
@@ -77,6 +86,9 @@
         if ( window.history.replaceState ) {
             window.history.replaceState( null, null, window.location.href );
         }
+    </script>
+    <script>
+        let artists = '{{.Artists}}'
     </script>
     <script src="../js/display.js" defer></script>
     <script src="../js/search.js" defer></script>

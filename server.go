@@ -33,11 +33,11 @@ type relationStruct struct {
 }
 
 var artistsData []artistStruct
+var artistsDataString []artistStruct
 var relationsData []relationStruct
 
 type dataStruct struct {
-	Artists   string
-	Relations string
+	Artists []string
 }
 
 type Pagination struct {
@@ -49,14 +49,21 @@ type Filter struct {
 	order int
 }
 
+type Search struct {
+	searchInput string
+}
+
 var data dataStruct
 var pagination Pagination
 var filter Filter
+var search Search
 
 func main() {
 	pagination.elements = 0
 	pagination.page = 1
 	filter.order = -1
+	search.searchInput = ""
+	loadArtistsString()
 
 	t = template.Must(template.ParseFiles("templates/index.html"))
 
@@ -129,7 +136,7 @@ func artists(w http.ResponseWriter, req *http.Request) {
 
 		// Formulaire de recherche
 		if req.FormValue("searchInput") != "" {
-			fmt.Println(req.FormValue("searchInput"))
+			search.searchInput = req.FormValue("searchInput")
 		}
 
 	}
@@ -139,7 +146,7 @@ func artists(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(400)
 	}
 
-	tArtists.Execute(w, nil)
+	tArtists.Execute(w, data)
 }
 
 func dates(w http.ResponseWriter, req *http.Request) {
@@ -211,8 +218,7 @@ func loadRelations() {
 
 	errUnmarshal := json.Unmarshal(responseJson, &relationsData)
 	if errUnmarshal != nil {
-		fmt.Println(errUnmarshal)
-		os.Exit(0)
+		log.Fatal(errUnmarshal)
 	}
 }
 
@@ -270,6 +276,40 @@ func reverseArrayAD(arr []artistStruct) []artistStruct {
 	return arr
 }
 
-func applySearch() {
+func applySearch(searchInput string) {
+	// response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 
+	// if errGet != nil {
+	// 	log.Fatal(errGet)
+	// }
+
+	// responseJson, errReadAll := ioutil.ReadAll(response.Body)
+	// if errReadAll != nil {
+	// 	log.Fatal(errReadAll)
+	// }
+
+	// errUnmarshal := json.Unmarshal(responseJson, &artistsData)
+}
+
+func loadArtistsString() {
+	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+
+	if errGet != nil {
+		log.Fatal(errGet)
+	}
+
+	responseJson, errReadAll := ioutil.ReadAll(response.Body)
+	if errReadAll != nil {
+		log.Fatal(errReadAll)
+	}
+
+	errUnmarshal := json.Unmarshal(responseJson, &artistsDataString)
+
+	if errUnmarshal != nil {
+		log.Fatal(errUnmarshal)
+	}
+
+	for i := range artistsDataString {
+		data.Artists = append(data.Artists, artistsDataString[i].Name+" ")
+	}
 }

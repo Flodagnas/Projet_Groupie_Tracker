@@ -29,7 +29,32 @@
 //     }
 // }
 
+artists = artists.slice(1, artists.length -1).split("  ")
 
-// document.querySelector('#searchInput').addEventListener('keyup', () => {
+const searchBar = document.querySelector('#searchInput');
+const suggestions = document.querySelector('.suggestions')
 
-// })
+searchBar.addEventListener('keyup', (e) => {
+    if (searchBar.value != "") {
+        filterSuggestion(searchBar.value.toLowerCase())
+    }
+})
+
+function filterSuggestion(searchString) {
+    suggestions.innerHTML = ""
+    
+    for (let artist of artists) {
+        if (searchString == artist.substr(0, searchString.length).toLowerCase()) {
+            makeLine(artist)
+        }
+    }
+}
+
+function makeLine(artist) {
+
+    let line = document.createElement('li')
+    line.innerText += artist
+    line.className = "lineSuggestions"
+
+    suggestions.appendChild(line)
+}
