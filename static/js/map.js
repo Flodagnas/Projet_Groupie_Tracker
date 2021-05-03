@@ -5,4 +5,4 @@ function map() {
     document.getElementById('gmap_canvas1').insertAdjacentHTML('beforeEnd',ville2);
 }
 
-geo(responseRelation)
+map(responseRelation)

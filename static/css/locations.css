@@ -1,15 +1,13 @@
-body{
-    background-color: #909090;
-}
 .title{
     text-align: center;
 }
-section#principal{
+section.locations{
     background-color:#808080; 
     overflow:auto;
     padding:10px;
 }
 article#d-concert{
+    background-color:#a3a2a2;
     float:left;
     margin-left:25%;
     border-style: outset;
@@ -17,6 +15,7 @@ article#d-concert{
     text-align: center;
 }
 article#p-concert{
+    background-color:#a3a2a2;
     float:right;
     margin-right:25%;
     border-style: outset;
@@ -29,3 +28,4 @@ article#d-concert:hover, article#d-concert:focus, article#d-concert:active {
 article#p-concert:hover, article#p-concert:focus, article#p-concert:active {
     background: #A0A0A0 ;
 }
+

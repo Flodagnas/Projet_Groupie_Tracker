@@ -7,7 +7,6 @@
     <title>Locations</title>
     <link rel="stylesheet" href="../static/css/locations.css">
     <link rel="stylesheet" href="../static/css/navbar.css">
-    <link rel="stylesheet" href="../static/css/test.css">
     
 </head>
 <body>
@@ -67,15 +66,18 @@
           <iframe width="400" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=Ynov+Nantes&t=k&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
           <a href="https://123movies-to.org/%22%3E"></a>
           <br>
-          <style>#mapouter{flex-direction: row;height:300px;width:400px;}</style>
+          <style>#mapouter{position:relative; flex-direction: row;float:left;height:300px;width:400px;}</style>
           <a href="https://www.embedgooglemap.net/%22%3Eembedgooglemap.net"></a>
           <style>.gmap_canvas1 {overflow:hidden;background:none!important;height:300px;width:400px;}</style>
         </div>
+    </div>
+    <br>
+    <div id="mapouter2">
         <div class="gmap_canvas2">
             <iframe width="400" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=Ynov+Nantes&t=k&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             <a href="https://123movies-to.org/%22%3E"></a>
             <br>
-            <style>#mapouter{height:300px;width:400px;}</style>
+            <style>#mapouter2{position:relative; flex-direction: row;float:right;height:300px;width:400px;}</style>
             <a href="https://www.embedgooglemap.net/%22%3Eembedgooglemap.net"></a>
             <style>.gmap_canvas2 {overflow:hidden;background:none!important;height:300px;width:400px;}</style>
           </div>
@@ -86,6 +88,5 @@
         let responseRelation = '{{.ResponseRelation}}'
     </script>
     <script src="../static/js/display.js" defer></script>
-    <script src="../static/js/map.js" defer></script>
 </body>
 </html>

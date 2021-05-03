@@ -21,7 +21,7 @@ function relation(relations) {
         date = relations['datesLocations'][locations]
         i += 1
         if (i == locations[locations.length - 1] - 1) {
-            preDate = date[date.length - 1]
+            preDate = date
             preLocations = locations
         }
 
