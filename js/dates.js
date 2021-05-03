@@ -79,6 +79,20 @@ const renderCalendar = () => {
     days += `<div class="next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
+
+  const information = document.querySelector(".informations");
+
+  for (let i = 1; i <= lastDay; i++) {
+    if (
+      i === new Date().getDate() &&
+      date.getMonth() === new Date().getMonth()
+    ) {
+      days;
+    } else {
+      none;
+    }
+  }
+
 };
 
 document.querySelector(".prev").addEventListener("click", () => {
@@ -89,6 +103,11 @@ document.querySelector(".prev").addEventListener("click", () => {
 document.querySelector(".next").addEventListener("click", () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar();
+});
+
+document.querySelector(".informations").addEventListener("click", () => {
+  date.getInformation();
+  information();
 });
 
 renderCalendar();
