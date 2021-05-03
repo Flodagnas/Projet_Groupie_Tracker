@@ -37,6 +37,8 @@ const suggestions = document.querySelector('.suggestions')
 searchBar.addEventListener('keyup', (e) => {
     if (searchBar.value != "") {
         filterSuggestion(searchBar.value.toLowerCase())
+    } else {
+        suggestions.innerHTML = ""
     }
 })
 
@@ -44,7 +46,15 @@ function filterSuggestion(searchString) {
     suggestions.innerHTML = ""
     
     for (let artist of artists) {
-        if (searchString == artist.substr(0, searchString.length).toLowerCase()) {
+        let artistInTab = artist.split(' ')
+        if (artistInTab != undefined) {
+            for (let word of artistInTab) {
+                if (searchString == word.substr(0, searchString.length).toLowerCase()) {
+                    makeLine(artist)
+                    break
+                }
+            } 
+        } else if (searchString == artist.substr(0, searchString.length).toLowerCase()) {
             makeLine(artist)
         }
     }

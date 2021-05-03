@@ -172,6 +172,7 @@ func locations(w http.ResponseWriter, req *http.Request) {
 func artistsAPI(w http.ResponseWriter, req *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 	loadArtists()
+	applySearch(search.searchInput)
 	applyFilter(filter.order)
 	applyPagination(pagination.elements, pagination.page)
 	artistsDataBytes, _ := json.Marshal(artistsData)
@@ -277,18 +278,24 @@ func reverseArrayAD(arr []artistStruct) []artistStruct {
 }
 
 func applySearch(searchInput string) {
-	// response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+	searchInput = strings.ToLower(searchInput)
 
-	// if errGet != nil {
-	// 	log.Fatal(errGet)
-	// }
+	if searchInput != "" {
+		artistsData = nil
+		for _, artistDataString := range artistsDataString {
 
-	// responseJson, errReadAll := ioutil.ReadAll(response.Body)
-	// if errReadAll != nil {
-	// 	log.Fatal(errReadAll)
-	// }
-
-	// errUnmarshal := json.Unmarshal(responseJson, &artistsData)
+			words := strings.Split(artistDataString.Name, " ")
+			for _, word := range words {
+				word = strings.ToLower(word)
+				if len(searchInput) < len(word) {
+					if searchInput == word[:len(searchInput)] {
+						artistsData = append(artistsData, artistDataString)
+						break
+					}
+				}
+			}
+		}
+	}
 }
 
 func loadArtistsString() {

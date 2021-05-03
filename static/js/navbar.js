@@ -1,5 +1,4 @@
 let links = document.querySelectorAll('.link')
-console.log(links)
 
 links[0].addEventListener('click', () => {
     if (links[0].classList[1] != 'active') {
