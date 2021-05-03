@@ -10,15 +10,28 @@ function geo(artists) {
 
 function relation(relations) {
     relations = JSON.parse(relations)
-    for (let location in relations['datesLocations']){
-        let date = relations['datesLocations'][location]
-        date.sort(function (a, b) {
-            return a.location - b.location;
-        });
-        document.getElementById('section_text1').insertAdjacentHTML('beforeEnd',date);
-        document.getElementById('section_text2').insertAdjacentHTML('beforeEnd',location);
-        console.log(date);
+    var lastDate = []
+    var preDate = []
+    let date = []
+    let locations = ""
+    preLocations = ""
+    let i = 0
+    preDate = date[date.length - 1]
+    for (locations in relations['datesLocations']){
+        date = relations['datesLocations'][locations]
+        i += 1
+        if (i == locations[locations.length - 1] - 1) {
+            preDate = date[date.length - 1]
+            preLocations = locations
+        }
+
     };
+    lastDate = date[date.length - 1]
+    document.getElementById('section_text1').insertAdjacentHTML('beforeEnd',preDate);
+    document.getElementById('section_text2').insertAdjacentHTML('beforeEnd',locations);
+    document.getElementById('section_text3').insertAdjacentHTML('beforeEnd',lastDate);
+    document.getElementById('section_text4').insertAdjacentHTML('beforeEnd',locations);
+    console.log(lastDate);
 };
 
 geo(responseData)
