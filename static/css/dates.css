@@ -124,3 +124,13 @@
 .today {
   background-color: #167e56;
 }
+
+.information {
+  width: 45rem;
+	height: 50rem;
+	background:rgb(255, 255, 255);
+  border-top-left-radius : 150px 100px;
+  border-top-right-radius : 150px 100px;
+  border-bottom-left-radius : 150px 100px;
+  border-bottom-right-radius : 150px 100px;
+}
