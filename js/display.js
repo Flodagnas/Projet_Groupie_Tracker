@@ -66,12 +66,21 @@ function makeCard(artist) {
     let bodyText = document.createElement('div')
     bodyText.className = 'body-text'
 
+    let buttonForm = document.createElement('form')
+    buttonForm.setAttribute("method", "post")
+    buttonForm.setAttribute("action", "/button")
     let datesButton = document.createElement('button')
     datesButton.innerText += "Dates"
     datesButton.className = 'datesButton'
+    datesButton.setAttribute("name", "dates")
+    datesButton.setAttribute("value", artist.id)
     let locationButton = document.createElement('button')
     locationButton.innerText += "Location"
     locationButton.className = 'locationButton'
+    locationButton.setAttribute("name", "location")
+    locationButton.setAttribute("value", artist.id)
+    buttonForm.appendChild(datesButton)
+    buttonForm.appendChild(locationButton)
 
     card.appendChild(text)
     card.appendChild(image)
@@ -84,8 +93,9 @@ function makeCard(artist) {
     card.appendChild(creationDate)
     card.appendChild(beforeAlbum)
     card.appendChild(firstAlbum)
-    card.appendChild(datesButton)
-    card.appendChild(locationButton)
+    // card.appendChild(datesButton)
+    // card.appendChild(locationButton)
+    card.appendChild(buttonForm)
     card.innerHTML += `<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg>`
     document.querySelector('.cards').appendChild(card)
 

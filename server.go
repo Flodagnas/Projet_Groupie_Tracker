@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -32,8 +33,47 @@ func main() {
 	http.HandleFunc("/locations", locations)
 	http.Handle("/locations/", http.NotFoundHandler())
 
+	// Methods
+	http.HandleFunc("/button", artistButton)
+
 	// Port :
 	http.ListenAndServe(":8000", nil)
+}
+
+func artistButton(w http.ResponseWriter, req *http.Request) {
+
+	value := req.FormValue("location")
+	if value == "" {
+		value = req.FormValue("dates")
+		fmt.Fprintf(w, "dates id = %s\n", value)
+		// println("dates id =" + value)
+		tDates, err := template.ParseFiles("templates/dates.html")
+		if err != nil {
+			w.WriteHeader(400)
+		}
+
+		type buttonStruct struct{ name string }
+		var structB buttonStruct
+		structB.name = value
+
+		tDates.Execute(w, structB)
+
+	} else {
+
+		fmt.Fprintf(w, "location id = %s\n", value)
+		// println("location id =" + value)
+		tLocations, err := template.ParseFiles("templates/locations.html")
+		if err != nil {
+			w.WriteHeader(400)
+		}
+		type buttonStruct struct{ name string }
+		var structB buttonStruct
+		structB.name = value
+
+		tLocations.Execute(w, structB)
+
+	}
+
 }
 
 func home(w http.ResponseWriter, req *http.Request) {
