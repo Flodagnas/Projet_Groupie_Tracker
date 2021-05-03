@@ -26,12 +26,14 @@
     
     </select>
     <div class="search">
-        <label for="searchInput">Search</label>
-        <input type="text" name="searchInput" id="searchInput">
-        <select name="searchSelect" id="searchSelect">
-            <option value="name">Name</option>
-            <option value="biography.fullName">Full name - Members</option>
-        </select>
+        <form action="" method="post">
+            <label for="searchInput">Search</label>
+            <input type="text" name="searchInput" id="searchInput" onkeyup="this.form.submit()">
+            <!-- <select name="searchSelect" id="searchSelect">
+                <option value="name">Name</option>
+                <option value="biography.fullName">Full name - Members</option>
+            </select> -->
+        </form>
     </div>
 
     <br>

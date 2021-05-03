@@ -127,6 +127,11 @@ func artists(w http.ResponseWriter, req *http.Request) {
 			filter.order = formValueInt
 		}
 
+		// Formulaire de recherche
+		if req.FormValue("searchInput") != "" {
+			fmt.Println(req.FormValue("searchInput"))
+		}
+
 	}
 
 	tArtists, err := template.ParseFiles("templates/artists.html")
@@ -263,4 +268,8 @@ func reverseArrayAD(arr []artistStruct) []artistStruct {
 		arr[i], arr[j] = arr[j], arr[i]
 	}
 	return arr
+}
+
+func applySearch() {
+
 }
