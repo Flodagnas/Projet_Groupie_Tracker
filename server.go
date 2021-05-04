@@ -74,12 +74,10 @@ func locations(w http.ResponseWriter, req *http.Request) {
 	}
 	if req.Method == "POST" {
 		req.ParseForm()
-		var id = req.FormValue("name")
+		id := req.FormValue("name")
 		APIRelation := "https://groupietrackers.herokuapp.com/api/relation/"+ id
 		data.ResponseRelation = loadAPIRelations(APIRelation)
-
 	}
-
 	tLocations.Execute(w, data)
 }
 

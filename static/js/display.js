@@ -17,7 +17,7 @@ function relation(relations) {
     let locations = ""
     preLocations = ""
     let i = 0
-    preDate = date[date.length - 1]
+    preDate = ""
     for (locations in relations['datesLocations']){
         date = relations['datesLocations'][locations]
         i += 1
