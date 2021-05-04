@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -45,7 +44,7 @@ func artistButton(w http.ResponseWriter, req *http.Request) {
 	value := req.FormValue("location")
 	if value == "" {
 		value = req.FormValue("dates")
-		fmt.Fprintf(w, "dates id = %s\n", value)
+		// fmt.Fprintf(w, "dates id = %s\n", value)
 		// println("dates id =" + value)
 		tDates, err := template.ParseFiles("templates/dates.html")
 		if err != nil {
@@ -60,7 +59,7 @@ func artistButton(w http.ResponseWriter, req *http.Request) {
 
 	} else {
 
-		fmt.Fprintf(w, "location id = %s\n", value)
+		// fmt.Fprintf(w, "location id = %s\n", value)
 		// println("location id =" + value)
 		tLocations, err := template.ParseFiles("templates/locations.html")
 		if err != nil {
