@@ -68,10 +68,16 @@ func dates(w http.ResponseWriter, req *http.Request) {
 
 func locations(w http.ResponseWriter, req *http.Request) {
 	data.ResponseData = loadAPI()
-	data.ResponseRelation = loadAPIRelations()
 	tLocations, err := template.ParseFiles("templates/locations.html")
 	if err != nil {
 		w.WriteHeader(400)
+	}
+	if req.Method == "POST" {
+		req.ParseForm()
+		var id = req.FormValue("name")
+		APIRelation := "https://groupietrackers.herokuapp.com/api/relation/"+ id
+		data.ResponseRelation = loadAPIRelations(APIRelation)
+
 	}
 
 	tLocations.Execute(w, data)
@@ -92,8 +98,8 @@ func loadAPI() string {
 	return string(responseData)
 }
 
-func loadAPIRelations() string {
-	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/relation/1")
+func loadAPIRelations(APIRelation string) string {
+	response, errGet := http.Get(APIRelation)
 
 	if errGet != nil {
 		log.Fatal(errGet)

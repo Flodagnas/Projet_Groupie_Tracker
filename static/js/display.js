@@ -4,7 +4,8 @@ function geo(artists) {
     artists = JSON.parse(artists)
     for (let artist of artists) {
         let nameSelect = artist['name']
-        document.getElementById('name').insertAdjacentHTML('beforeEnd','<option>' + nameSelect + '</option>');
+        let id = artist['id']
+        document.getElementById('name').insertAdjacentHTML('beforeEnd','<option value="'+ id + '">' + nameSelect + '</option>');
     }; 
 };
 
