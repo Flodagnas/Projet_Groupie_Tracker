@@ -1,8 +1,10 @@
 console.log("Script display loaded")
 
-function loadData(artists) {
-    artists = JSON.parse(artists)
+fetch("api/artists")
+    .then((response) => response.json())
+    .then(loadData)
 
+function loadData(artists) {
     for (artist of artists) {
         makeCard(artist)
     }
@@ -118,5 +120,3 @@ function cardOnClick(el) {
     el.querySelector('.locationButton').classList.toggle('displayed')
 
 }
-
-loadData(responseData)
