@@ -1,13 +1,5 @@
 console.log("Script display loaded")
 
-// function loadData(dates) {
-//     dates = JSON.parse(dates)
-
-//     for (date of dates) {
-//         makeCard(date)
-//     }
-// }
-
 // loadData(responseData)
 
 const date = new Date();
@@ -111,3 +103,5 @@ document.querySelector(".informations").addEventListener("click", () => {
 });
 
 renderCalendar();
+
+console.log(date);
