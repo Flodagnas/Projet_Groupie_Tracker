@@ -5,6 +5,64 @@ body {
     background-color: rgb(224, 224, 224);
 }
 
+input[name="buttonNext"] { 
+    background-color: rgb(243, 243, 243);
+    height: 30px;
+    border: rgb(170, 170, 170);
+    box-shadow:0px 5px 20px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    position: absolute;
+    /* float: right; */
+    display: inline-block;
+    right: 10px;
+    /* margin-left: 90%; */
+    /* margin-right: 1%; */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+input[name="buttonNext"]:hover {  
+    background-color: rgb(228, 228, 228);
+
+}
+
+input[name="buttonNext"]:focus {  
+    background-color: rgb(173, 173, 173);
+
+}
+
+input[name="buttonPrevious"] { 
+    background-color: rgb(243, 243, 243);
+    height: 30px;
+    border: rgb(170, 170, 170);
+    box-shadow:0px 5px 20px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    /* float: left; */
+    display: inline-block;
+    margin-left: 1%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+input[name="buttonPrevious"]:hover {  
+    background-color: rgb(228, 228, 228);
+
+}
+
+input[name="buttonPrevious"]:focus {  
+    background-color: rgb(173, 173, 173);
+
+}
 
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:900');
