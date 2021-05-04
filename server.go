@@ -43,7 +43,6 @@ func home(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		w.WriteHeader(400)
 	}
-
 	tHome.Execute(w, nil)
 }
 
@@ -53,7 +52,6 @@ func artists(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		w.WriteHeader(400)
 	}
-
 	tArtists.Execute(w, data)
 }
 
@@ -62,7 +60,6 @@ func dates(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		w.WriteHeader(400)
 	}
-
 	tDates.Execute(w, nil)
 }
 
@@ -75,38 +72,32 @@ func locations(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "POST" {
 		req.ParseForm()
 		id := req.FormValue("name")
-		APIRelation := "https://groupietrackers.herokuapp.com/api/relation/"+ id
-		data.ResponseRelation = loadAPIRelations(APIRelation)
+		apiRelation := "https://groupietrackers.herokuapp.com/api/relation/"+ id
+		data.ResponseRelation = loadAPIRelations(apiRelation)
 	}
 	tLocations.Execute(w, data)
 }
 
 func loadAPI() string {
 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
-
 	if errGet != nil {
 		log.Fatal(errGet)
 	}
-
 	responseData, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
-
 	return string(responseData)
 }
 
-func loadAPIRelations(APIRelation string) string {
-	response, errGet := http.Get(APIRelation)
-
+func loadAPIRelations(apiRelation string) string {
+	response, errGet := http.Get(apiRelation)
 	if errGet != nil {
 		log.Fatal(errGet)
 	}
-
 	responseRelation, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
-
 	return string(responseRelation)
 }
