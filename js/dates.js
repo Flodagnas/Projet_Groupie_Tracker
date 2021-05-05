@@ -60,22 +60,30 @@ const renderCalendar = () => {
 
   let days = "";
 
-  for (let x = firstDayIndex; x > 0; x--) {
-    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
-  }
+  if (firstDayIndex != 0) {
 
-  for (let i = 1; i <= lastDay; i++) {
-    if (
-      i === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth()
-    ) {
-      days += `<div class="today">${i}</div>`;
-    } else {
-      days += `<div>${i}</div>`;
+    for (let x = firstDayIndex - 1; x > 0; x--) {
+      days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+    }
+
+  } else {
+    for (let x = 6; x > 0; x--) {
+      days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
     }
   }
 
-  for (let j = 1; j <= nextDays; j++) {
+  for (let i = 1; i <= lastDay; i++) {
+
+    if ( i === new Date().getDate() && date.getMonth() === new Date().getMonth() ) {
+      days += `<div class="today">${i}</div>`;
+
+    } else {
+      days += `<div>${i}</div>`;
+
+    }
+  }
+
+  for (let j = 1; j <= nextDays + 1; j++) {
     days += `<div class="next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
