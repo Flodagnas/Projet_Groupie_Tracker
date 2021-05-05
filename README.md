@@ -2,6 +2,20 @@
 
 ### Groupe : [Nathan SCHNEIDER](https://github.com/NatSch45) / [Florian DAGNAS](https://github.com/Flodagnas) / [Malo LOYER VIAUD](https://github.com/Amol44) / [Louis BROCHARD](https://github.com/LBROCHARD)
 
+- ## **Le projet en quelques phrases :**
+
+Il faut construire une page web afin d’organiser tous les concerts de plusierus groupes. Cette information peut être trouvée sur un site web.  
+Pour extraire les informations de l’API, nous utilisons le language Go puis nous créons un pont vers le JS pour manipuler les données.
+L’extraction des données depuis un serveur distant prend du temps, et loadData est exécuté lorsque le navigateur reçoit les données des héros, et le serveur peut prendre un certain temps.  
+Les informations doivent être affichées sur plusieurs pages.  
+Il doit être possible de voir des informations sur certains groupes et artistes comme leur(s) nom(s), image, en quelle année ils ont commencé leur activité, la date de leur premier album et les membres.
+Il doit être aussi possible de voir leurs derniers lieux et dates de concerts et / ou à venir.
+Les API artists et relation devront être utilisé.
+
+
+
+Les langages utilisé son :
+
 <span>
   <img src="https://undo.io/media/uploads/files/Golang.png" width="100" height="100" name="Golang">
   <img src="https://cdn.iconscout.com/icon/free/png-256/javascript-2752148-2284965.png" width="100" height="100" name="Java Script">
