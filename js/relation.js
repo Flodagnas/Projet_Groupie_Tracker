@@ -7,14 +7,11 @@ function recupGroupes(artists) {
         let id = artist['id']
         document.getElementById('name').insertAdjacentHTML('beforeEnd','<option value="'+ id + '">' + nameSelect + '</option>');
     }; 
-  };
+};
 
 function APIRelation(relations) {
-    // console.log(relations);
     relationsGroupe = JSON.parse(relations)
-    var lastDate = ""
     let dates = []
-    let preDate = ""
     
     for (locations in relationsGroupe['datesLocations']){
         relationsGroupe['datesLocations'][locations].forEach(date => {
@@ -26,19 +23,7 @@ function APIRelation(relations) {
         let dateB = new Date(b.split("-").reverse().join("-"))
         return dateA - dateB
     })
-    preDate = dates[dates.length - 2]
-    lastDate = dates[dates.length - 1]
-    for (locations in relationsGroupe['datesLocations']){
-        relationsGroupe['datesLocations'][locations].forEach(date => {
-            if (date == preDate) {
-                preLocation = locations.split(/-|_/).join(" ")
-            }
-            if (date == lastDate) {
-                lastLocation = locations.split(/-|_/).join(" ")
-            }
-        });
-    }
-    document.getElementsByClassName('informations').insertAdjacentHTML('beforeEnd','<p>' + nameSelect + '</p>');
+    document.getElementsByClassName('informations').insertAdjacentHTML('beforeEnd','<p>' + dates + '</p>');
 };
 
 recupGroupes(responseData)
