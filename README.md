@@ -72,6 +72,7 @@ Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe 
     - Template(HTML)
     - CSS
     - Géolocalisation (API Map)
+    - Power Point
 ```
 
 ```
@@ -83,6 +84,7 @@ Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe 
     - Back-end
     - Géolocalisation (API Map)
     - Readme
+    - Power Point
 ```
 
 ```
@@ -106,4 +108,5 @@ Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe 
     - Back-end
     - Trie du Back-end
     - Search-Bar
+    - Power Point
 ```
