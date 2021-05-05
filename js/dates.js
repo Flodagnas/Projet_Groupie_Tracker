@@ -1,16 +1,5 @@
 console.log("Script display loaded")
 
-function recupGroupes(artists) {
-  group = JSON.parse(artists)
-  console.log(group);
-  for (let artist of group) {
-      let nameSelect = artist['name']
-      console.log(nameSelect);
-      let id = artist['id']
-      document.getElementById('name').insertAdjacentHTML('beforeEnd','<option value="'+ id + '">' + nameSelect + '</option>');
-  }; 
-};
-
 const date = new Date();
 
 const renderCalendar = () => {
@@ -105,7 +94,6 @@ document.querySelector(".informations").addEventListener("click", () => {
   information();
 });
 
-recupGroupes(responseData)
 renderCalendar();
 
 console.log(date);

@@ -11,7 +11,7 @@ var t *template.Template
 
 type dataStruct struct {
 	ResponseData string
-	ResponseDates string
+	ResponseRelation string
 }
 
 var data dataStruct
@@ -66,10 +66,9 @@ func dates(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "POST" {
 		req.ParseForm()
 		id := req.FormValue("name")
-		apiDates := "https://groupietrackers.herokuapp.com/api/dates/" + id
-		data.ResponseDates = loadDates(apiDates)
+		apiRelation := "https://groupietrackers.herokuapp.com/api/relation/" + id
+		data.ResponseRelation = loadAPIRelations(apiRelation)
 	}
-
 	tDates.Execute(w, data)
 }
 
@@ -95,14 +94,14 @@ func loadAPI() string {
 }
 
 //Lire l'API
-func loadDates(apiDates string) string {
-	response, errGet := http.Get(apiDates)
+func loadAPIRelations(apiRelation string) string {
+	response, errGet := http.Get(apiRelation)
 	if errGet != nil {
 		log.Fatal(errGet)
 	}
-	ResponseDates, errReadAll := ioutil.ReadAll(response.Body)
+	responseRelation, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
-	return string(ResponseDates)
+	return string(responseRelation)
 }
