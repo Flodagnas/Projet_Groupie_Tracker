@@ -10,7 +10,7 @@ import (
 var t *template.Template
 
 type dataStruct struct {
-	ResponseData string
+	ResponseData     string
 	ResponseRelation string
 }
 
@@ -21,9 +21,10 @@ func main() {
 	// Importation des fichiers statiques :
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
-	http.Handle("/", http.NotFoundHandler())
+	http.Handle("/jquery/", http.StripPrefix("/jquery/", http.FileServer(http.Dir("jquery"))))
 
 	// Accès aux pages :
+	http.Handle("/", http.NotFoundHandler())
 	http.HandleFunc("/home", home)
 	http.Handle("/home/", http.NotFoundHandler())
 	http.HandleFunc("/artists", artists)
@@ -72,7 +73,7 @@ func locations(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "POST" {
 		req.ParseForm()
 		id := req.FormValue("name")
-		apiRelation := "https://groupietrackers.herokuapp.com/api/relation/"+ id
+		apiRelation := "https://groupietrackers.herokuapp.com/api/relation/" + id
 		data.ResponseRelation = loadAPIRelations(apiRelation)
 	}
 	tLocations.Execute(w, data)

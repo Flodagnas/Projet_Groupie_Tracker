@@ -1,5 +1,8 @@
 console.log("Script display loaded")
 
+let lastLocation = ""
+let preLocation = ""
+
 function geo(artists) {
     artists = JSON.parse(artists)
     for (let artist of artists) {
@@ -10,12 +13,10 @@ function geo(artists) {
 };
 
 function APIRelation(relations) {
-    console.log(relations);
+    // console.log(relations);
     relationsGroupe = JSON.parse(relations)
     var lastDate = ""
     let dates = []
-    let lastLocation = ""
-    let preLocation = ""
     let i = 0
     let preDate = ""
     /*for (locations in relationsGroupe['datesLocations']){
@@ -41,10 +42,10 @@ function APIRelation(relations) {
     for (locations in relationsGroupe['datesLocations']){
         relationsGroupe['datesLocations'][locations].forEach(date => {
             if (date == preDate) {
-                preLocation = locations
+                preLocation = locations.split(/-|_/).join(" ")
             }
             if (date == lastDate) {
-                lastLocation = locations
+                lastLocation = locations.split(/-|_/).join(" ")
             }
         });
     }
@@ -52,8 +53,9 @@ function APIRelation(relations) {
     document.getElementById('section_text2').insertAdjacentHTML('beforeEnd',preLocation);
     document.getElementById('section_text3').insertAdjacentHTML('beforeEnd',lastDate);
     document.getElementById('section_text4').insertAdjacentHTML('beforeEnd',lastLocation);
-    console.log(lastDate);
 };
 
 geo(responseData)
-APIRelation(responseRelation)
+if (responseRelation) {
+    APIRelation(responseRelation)
+}
