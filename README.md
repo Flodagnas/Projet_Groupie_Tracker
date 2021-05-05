@@ -31,28 +31,28 @@ Le site contient également une barre de recherche qui permet de trouver plus fa
 Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe quel groupe et trouver des informations sur eux rapidement et facilement.
 
 - ## **Comment le code est t-il organisé :**
-- ### **Côté home : **
+- ### **Côté home :**
 
 ```
     Dossier scirpt --> home.js / navbar.js
     Dossier static --> home.css / navbar.css
     Dossier templates --> home.html
 ```
-- ### **Côté artists : **
+- ### **Côté artists :**
 
 ```
     Dossier scirpt --> display.js / navbar.js / search.js
     Dossier static --> artists.css / navbar.css / cards.css
     Dossier templates --> artists.html
 ```
-- ### **Côté dates : **
+- ### **Côté dates :**
 
 ```
     Dossier scirpt -->
     Dossier static --> navbar.css
     Dossier templates --> dates.html
 ```
-- ### **Côté locations : **
+- ### **Côté locations :**
 
 ```
     Dossier scirpt --> display.js / navbar.js / map.js / geocoding.js
