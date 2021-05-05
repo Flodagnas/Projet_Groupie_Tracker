@@ -103,7 +103,7 @@ func loadAPI() string {
 }
 
 //Lire l'API
-func loadAPIDates() string {
+func loadDates() string {
 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/dates")
 
 	if errGet != nil {
