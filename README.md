@@ -22,3 +22,10 @@ Les langages utilisé son :
   <img src="https://cdn2.iconfinder.com/data/icons/social-icon-3/512/social_style_3_html5-512.png" width="100" height="100" name="HTML5">
   <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png" width="100" height="100" name="CSS3">
 </span>
+
+- ## **Comment utiliser le site :**
+
+Pour lancez le projet, il faut taper "go run server.go" dans le terminal de votre VSCode
+Notre site internet permet de voir des groupes de musique selon une base de données complète. Cette base de données est organisée par ordre alphabétique selon le nom des différents groupe. Notre site permet également de trouver différentes informations sur les groupes en questions présent sur notre site. Lorsque vous passez votre curseur sur un groupe, vous trouverez ces informations le concernant :  leur(s) nom(s), une image du groupe, en quelle année ils ont commencé leur activité, la date de leur premier album et les membres.  
+Le site contient également une barre de recherche qui permet de trouver plus facilement un groupe en particulier et les caractéristiques le concernant.
+Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe quel groupe et trouver des informations sur eux rapidement et facilement.
