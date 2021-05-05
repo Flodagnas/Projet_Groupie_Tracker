@@ -86,52 +86,56 @@
             <a href="/locations" class="link">Villes</a>
         </nav>
     </div>
-    <br>
-    <div id="reglage">
-        <form action="" method="POST">
-            <select id="name" name="name" onchange="this.form.submit()">
-                <option>--Choose a group--</option>
-            </select>
-        </form>
+    <div class="content wrapper">
+        <div id="reglage">
+            <form action="" method="POST">
+                <select id="name" name="name" onchange="this.form.submit()">
+                    <option>--Choose a group--</option>
+                </select>
+            </form>
+        </div>
+        <section id="section">
+            <div id="groupeName">
+                <h1>
+                    
+                </h1>
+            </div>
+            <aside class="locations">
+                <article id="d-concert">
+                    <div class="text">
+                        <div class="section_titre">
+                            <h2>Dernier concert</h2>
+                        </div>
+                        <div class="section_text">
+                            <span id="section_text">Le: </span>
+                            <span id="section_text1"></span>
+                            <br>
+                            <span id="section_text">Où: </span>
+                            <span id="section_text2"></span>
+                        </div>
+                </article>
+            </aside>
+            <aside class="locations">
+                <article id="p-concert">
+                    <div class="text">
+                        <div class="section_titre">
+                            <h2>Futur concert</h2>
+                        </div>
+                        <div class="section_text">
+                            <span id="section_text">Le: </span>
+                            <span id="section_text3"></span>
+                            <br>
+                            <span id="section_text">Où: </span>
+                            <span id="section_text4"></span>
+                        </div>
+                    </div>
+                </article>
+            </aside>
+        </section>
     </div>
-    <section id="section">
-        <aside class="locations">
-            <article id="d-concert">
-                <div class="text">
-                    <div class="section_titre">
-                        <h2>Dernier concert</h2>
-                    </div>
-                    <div class="section_text">
-                        <span id="section_text">Le: </span>
-                        <span id="section_text1"></span>
-                        <br>
-                        <span id="section_text">Où: </span>
-                        <span id="section_text2"></span>
-                    </div>
-            </article>
-        </aside>
-        <aside class="locations">
-            <article id="p-concert">
-                <div class="text">
-                    <div class="section_titre">
-                        <h2>Futur concert</h2>
-                    </div>
-                    <div class="section_text">
-                        <span id="section_text">Le: </span>
-                        <span id="section_text3"></span>
-                        <br>
-                        <span id="section_text">Où: </span>
-                        <span id="section_text4"></span>
-                    </div>
-                </div>
-            </article>
-        </aside>
-    </section>
-
     <div id="map">
 
     </div>
-
     <script>
         let responseData = '{{.ResponseData}}'
         let responseRelation = '{{.ResponseRelation}}'

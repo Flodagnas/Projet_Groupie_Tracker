@@ -19,14 +19,7 @@ function APIRelation(relations) {
     let dates = []
     let i = 0
     let preDate = ""
-    /*for (locations in relationsGroupe['datesLocations']){
-        date = relationsGroupe['datesLocations'][locations]
-        i += 1
-        if (i == Object.getOwnPropertyNames(relationsGroupe['datesLocations']).length -1) {
-            preDate = date
-            preLocations = locations
-        }
-    };*/
+    
     for (locations in relationsGroupe['datesLocations']){
         relationsGroupe['datesLocations'][locations].forEach(date => {
             dates.push(date)
