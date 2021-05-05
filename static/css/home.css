@@ -1,6 +1,11 @@
+
 body {
     margin: 0;
     padding: 0;
+}
+
+span.bold {
+    font-weight: bold;
 }
 
 .main {
@@ -22,24 +27,24 @@ body {
     font-size: 34px;
     color: #121013;
 }
+article#left{
+    float:left;
+    margin-left:7%;
+    text-align: left;
+    width: 40%;
+}
+article#right{
+    float:right;
+    margin-right:7%;
+    text-align: right;
+    width: 40%;
+}
 .demo_wrap p {
     position: relative;
     z-index: 2;
     font-size: 20px;
     font-weight: 4 00;
     color: #121013;
-}
-.demo_wrap .left {
-    margin-left: 30px;
-    text-align: left;
-    width: 40%;
-}
-.demo_wrap .right {
-    margin-right: 30px;
-    float: right;
-    text-align: right;
-    width: 40%;
-    /* position: absolute; */
 }
 .demo_wrap:before {
     content: ' ';
@@ -54,17 +59,11 @@ body {
     background-image: url('/static/src/concertRogne.jpg');
     background-repeat: no-repeat;
     background-position: 50% 0;
-    /* background-size: cover; */
 }
-
-
-
 .content {
     height: 800px;
-    margin-top: 5%;
-    margin-left: 5%;
+    background-repeat: no-repeat repeat;
 }
-
 footer {
     display: flex;
     justify-content: center;
@@ -75,8 +74,51 @@ footer {
     background-color: rgb(43, 43, 43);
     color: white;
     margin-bottom: 0%;
+    box-shadow: 0px 0px 15px 5px rgb(58, 58, 58);
+    z-index: 2;
 }
 footer div a {
     text-decoration: none;
     color: rgb(224, 213, 110);
+}
+.wrapper:before {
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    animation: scroll 70s linear infinite;
+    background: url('/static/src/backgroundConcertDark.png');
+    color: #eee;
+    height: 110.8vh;
+    min-width: 360px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    opacity: 0.5;
+}
+.wrapper h1 {
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+    padding-top: 5%;
+    padding-left: 5%;
+    color: #fff;
+}
+.wrapper ul {
+    position: relative;
+    z-index: 2;
+    list-style: none;
+    padding-left: 10%;
+}
+.wrapper ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+@keyframes scroll {
+    100%{
+        background-position:0px -3000px;
+    }
 }
