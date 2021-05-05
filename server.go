@@ -11,6 +11,7 @@ var t *template.Template
 
 type dataStruct struct {
 	ResponseData string
+	ResponseDates string
 }
 
 var data dataStruct
@@ -62,8 +63,14 @@ func dates(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		w.WriteHeader(400)
 	}
+	if req.Method == "POST" {
+		req.ParseForm()
+		id := req.FormValue("name")
+		apiDates := "https://groupietrackers.herokuapp.com/api/dates/" + id
+		data.ResponseDates = loadDates(apiDates)
+	}
 
-	tDates.Execute(w, nil)
+	tDates.Execute(w, data)
 }
 
 func locations(w http.ResponseWriter, req *http.Request) {
@@ -88,17 +95,14 @@ func loadAPI() string {
 }
 
 //Lire l'API
-func loadDates() string {
-	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/dates")
-
+func loadDates(apiDates string) string {
+	response, errGet := http.Get(apiDates)
 	if errGet != nil {
 		log.Fatal(errGet)
 	}
-
-	responseData, errReadAll := ioutil.ReadAll(response.Body)
+	ResponseDates, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
-
-	return string(responseData)
+	return string(ResponseDates)
 }
