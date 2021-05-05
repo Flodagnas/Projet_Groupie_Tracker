@@ -18,57 +18,55 @@
     />
   </head>
   <body>
-    <div>
-      <div class="navbar">
-        <h1>Groupie Tracker</h1>
-        <h4>All you want to know about concerts</h4>
-        <nav class="tabs">
-          <div class="selector"></div>
-          <a href="/home"  class="link">Accueil</a>
-          <a href="/artists" class="link">Artistes</a>
-          <a href="#" class="link active">Dates</a>
-          <a href="/locations" class="link">Villes</a>
-        </nav>
-      </div>
-      <div class="title">
-        <h1>&#x2728;Voici les dates de vos concert preferer ! &#x2728;</h1>
-      </div>
-      <div id="reglage">
-        <form action="" method="POST">
-          <select id="name" name="name" onchange="this.form.submit()">
-            <option>--Choose a group--</option>
-          </select>
-        </form>
-      </div>
-      <br>
-      <div class="container">
-        <div class="calendar">
-          <div class="month">
-            <i class="fas fa-angle-left prev"></i>
-              <div class="date">
-                <h1></h1>
-                <p></p>
-              </div>
-            <i class="fas fa-angle-right next"></i>
-          </div>
-          <div class="weekdays">
-            <div>Lun</div>
-            <div>Mar</div>
-            <div>Mer</div>
-            <div>Jeu</div>
-            <div>Ven</div>
-            <div>Sam</div>
-            <div>Dim</div>
-          </div>
-        <div class="days"></div> 
-      </div>
-      <script>
-        let responseData = '{{.ResponseData}}'
-      </script>
-      <script src="../js/dates.js" defer></script>
-      <div class="informations">
-        
-      </div>
+    <div class="navbar">
+      <h1>Groupie Tracker</h1>
+      <h4>All you want to know about concerts</h4>
+      <nav class="tabs">
+        <div class="selector"></div>
+        <a href="/home"  class="link">Accueil</a>
+        <a href="/artists" class="link">Artistes</a>
+        <a href="#" class="link active">Dates</a>
+        <a href="/locations" class="link">Villes</a>
+      </nav>
     </div>
+    <div class="title">
+      <h1>&#x2728;Voici les dates de vos concert preferer ! &#x2728;</h1>
+    </div>
+    <div id="reglage">
+      <form action="" method="POST">
+        <select id="name" name="name" onchange="this.form.submit()">
+          <option>--Choose a group--</option>
+        </select>
+      </form>
+    </div>
+    <br>
+    <div class="container">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+              <h1></h1>
+              <p></p>
+            </div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div>Lun</div>
+          <div>Mar</div>
+          <div>Mer</div>
+          <div>Jeu</div>
+          <div>Ven</div>
+          <div>Sam</div>
+          <div>Dim</div>
+        </div>
+      <div class="days"></div> 
+    </div>
+    <div class="informations">
+      
+    </div>
+    <script>
+      let responseData = '{{.ResponseData}}'
+    </script>
+    <script src="../js/dates.js" defer></script>
   </body>
 </html>

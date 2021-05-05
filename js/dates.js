@@ -2,6 +2,7 @@ console.log("Script display loaded")
 
 function recupGroupes(artists) {
   group = JSON.parse(artists)
+  console.log(group);
   for (let artist of group) {
       let nameSelect = artist['name']
       console.log(nameSelect);
