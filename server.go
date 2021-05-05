@@ -63,7 +63,7 @@ func dates(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(400)
 	}
 
-	tDates.Execute(w, nil)
+	tDates.Execute(w, data)
 }
 
 func locations(w http.ResponseWriter, req *http.Request) {
