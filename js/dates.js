@@ -1,15 +1,5 @@
 console.log("Script display loaded")
 
-//function loadData(dates) {
-//  dates = JSON.parse(dates)
-
-//  for (date of dates) {
-//      makeInfo(date)
-//  }
-//}
-
-// loadData(responseData)
-
 const date = new Date();
 
 const renderCalendar = () => {
@@ -107,3 +97,5 @@ document.querySelector(".informations").addEventListener("click", () => {
 renderCalendar();
 
 console.log(date);
+
+
