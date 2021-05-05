@@ -65,6 +65,19 @@ func dates(w http.ResponseWriter, req *http.Request) {
 	tDates.Execute(w, nil)
 }
 
+/*func getDate(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+
+	for _, item := range dates {
+		if strconv.Itoa(item.ID) == params["id"] {
+			json.NewEncoder(w).Encode(item)
+			return
+		}
+	}
+	json.NewEncoder(w).Encode(&Artist{})
+}*/
+
 func locations(w http.ResponseWriter, req *http.Request) {
 	tLocations, err := template.ParseFiles("templates/locations.html")
 	if err != nil {
@@ -90,7 +103,7 @@ func loadAPI() string {
 }
 
 //Lire l'API
-func loadDates() string {
+func loadAPIDates() string {
 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/dates")
 
 	if errGet != nil {
