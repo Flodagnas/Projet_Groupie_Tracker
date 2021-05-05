@@ -1,5 +1,15 @@
 console.log("Script display loaded")
 
+//function loadData(dates) {
+//  dates = JSON.parse(dates)
+
+//  for (date of dates) {
+//      makeInfo(date)
+//  }
+//}
+
+// loadData(responseData)
+
 const date = new Date();
 
 const renderCalendar = () => {
