@@ -1,14 +1,14 @@
 console.log("Script display loaded")
 
-//function loadData(dates) {
-//  dates = JSON.parse(dates)
-
-//  for (date of dates) {
-//      makeInfo(date)
-//  }
-//}
-
-// loadData(responseData)
+function recupGroupes(artists) {
+  artists = JSON.parse(artists)
+  for (let artist of artists) {
+      let nameSelect = artist['name']
+      console.log(nameSelect);
+      let id = artist['id']
+      document.getElementById('name').insertAdjacentHTML('beforeEnd','<option value="'+ id + '">' + nameSelect + '</option>');
+  }; 
+};
 
 const date = new Date();
 
@@ -104,6 +104,7 @@ document.querySelector(".informations").addEventListener("click", () => {
   information();
 });
 
+recupGroupes(responseData)
 renderCalendar();
 
 console.log(date);

@@ -57,6 +57,7 @@ func artists(w http.ResponseWriter, req *http.Request) {
 }
 
 func dates(w http.ResponseWriter, req *http.Request) {
+	data.ResponseData = loadAPI()
 	tDates, err := template.ParseFiles("templates/dates.html")
 	if err != nil {
 		w.WriteHeader(400)
