@@ -63,7 +63,15 @@ article#right{
 .content {
     height: 800px;
     background-repeat: no-repeat repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.content p {
+    color: #fff;
+    margin: 0;
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -102,8 +110,6 @@ footer div a {
     position: relative;
     z-index: 2;
     margin-top: 0;
-    padding-top: 5%;
-    padding-left: 5%;
     color: #fff;
 }
 .wrapper ul {

@@ -21,7 +21,7 @@
         let isVillesEmpty
         
         // Fonction d'initialisation de la carte
-        async function initMap() {
+        function initMap() {
             isVillesEmpty = Object.keys(villes).length === 0 && villes.constructor === Object
             // Créer l'objet "map" et l'insèrer dans l'élément HTML qui a l'ID "map"
             if (lati && long && !(isVillesEmpty)) {
@@ -89,9 +89,9 @@
     <br>
 
     <div id="reglage">
-        <form action="" method="POST">
+        <form action="" method="POST" class="formLocation">
             <select id="name" name="name" onchange="this.form.submit()">
-                <option>--Choose a group--</option>
+                <option>Choisir un groupe ou un artiste</option>
             </select>
         </form>
     </div>

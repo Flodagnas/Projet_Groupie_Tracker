@@ -5,6 +5,8 @@ ul {
 .suggestions {
     padding-left: 0;
     margin-left: 20%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .search {
