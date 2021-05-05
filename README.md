@@ -30,6 +30,36 @@ Notre site internet permet de voir des groupes de musique selon une base de donn
 Le site contient également une barre de recherche qui permet de trouver plus facilement un groupe en particulier et les caractéristiques le concernant.
 Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe quel groupe et trouver des informations sur eux rapidement et facilement.
 
+- ## **Comment le code est t-il organisé :**
+- ### **Côté home : **
+
+```
+    Dossier scirpt --> home.js / navbar.js
+    Dossier static --> home.css / navbar.css
+    Dossier templates --> home.html
+```
+- ### **Côté artists : **
+
+```
+    Dossier scirpt --> display.js / navbar.js / search.js
+    Dossier static --> artists.css / navbar.css / cards.css
+    Dossier templates --> artists.html
+```
+- ### **Côté dates : **
+
+```
+    Dossier scirpt -->
+    Dossier static --> navbar.css
+    Dossier templates --> dates.html
+```
+- ### **Côté locations : **
+
+```
+    Dossier scirpt --> display.js / navbar.js / map.js / geocoding.js
+    Dossier static --> locations.css / navbar.css
+    Dossier templates --> locations.html
+```
+
 - ## **L'organisation du groupe :**
 
 ```
@@ -63,6 +93,8 @@ Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe 
     - Assemblage du code
     - Back-end
     - Power Point
+    - Search-Bar
+    - Input calendrier pour les dates
 ```
 
 ```
@@ -73,4 +105,5 @@ Ainsi, grâce à ce site vous pouvez trouver des renseignements sur n’importe 
     - Assemblage du code
     - Back-end
     - Trie du Back-end
+    - Search-Bar
 ```
