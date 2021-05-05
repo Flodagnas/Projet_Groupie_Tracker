@@ -1,49 +1,38 @@
-body{
-    background-image: url('/static/src/concert2.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
+.section_titre{
+    opacity: 2;
+    text-align: center;
+    color:rgb(253, 253, 253)
 }
-body:before{
-    z-index: 1;
-    opacity: 0.5;
-}
-.title{
+select#name, option{
+    border-radius: 10px;
     text-align: center;
 }
-nav {
-    color: white;
-    z-index: 2;
-}
-nav ul li a{
-    color: white;
-}
-section#principal{
-    z-index: 2;
+
+section.locations{
     overflow:auto;
     padding:10px;
 }
-article#d-concert{
-    background-color: white;
-    z-index: 2;
-    float:left;
-    margin-left:25%;
-    border-style: outset;
-    border-radius: 10px;
+
+#name{
     text-align: center;
-}
-article#p-concert{
-    background-color: white;
-    z-index: 2;
-    float:right;
-    margin-right:25%;
-    border-style: outset;
-    border-radius: 10px;
-    text-align: center;
-}
-article#d-concert:hover, article#d-concert:focus, article#d-concert:active {
-    background: #A0A0A0 ;
-}
-article#p-concert:hover, article#p-concert:focus, article#p-concert:active {
-    background: #A0A0A0 ;
 }
 
+#d-concert, #p-concert {
+    padding: 3%;
+    width: auto;
+    color: white;
+    border-style: outset;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+#d-concert{
+    background: linear-gradient(45deg,rgb(45, 45, 45), rgb(243, 214, 47));
+    float:left;
+    margin-left:25%;
+}
+#p-concert{
+    background: linear-gradient(135deg,rgb(243, 214, 47), rgb(45, 45, 45));
+    float:right;
+    margin-right:25%;
+}

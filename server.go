@@ -37,7 +37,8 @@ var artistsDataString []artistStruct
 var relationsData []relationStruct
 
 type dataStruct struct {
-	Artists []string
+	Artists          []string
+	ResponseRelation string
 }
 
 type Pagination struct {
@@ -166,8 +167,13 @@ func locations(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		w.WriteHeader(400)
 	}
-
-	tLocations.Execute(w, nil)
+	if req.Method == "POST" {
+		req.ParseForm()
+		id := req.FormValue("name")
+		apiRelation := "https://groupietrackers.herokuapp.com/api/relation/" + id
+		data.ResponseRelation = loadAPIRelations(apiRelation)
+	}
+	tLocations.Execute(w, data)
 }
 
 func artistsAPI(w http.ResponseWriter, req *http.Request) {
@@ -354,4 +360,16 @@ func artistButton(w http.ResponseWriter, req *http.Request) {
 
 	}
 
+}
+
+func loadAPIRelations(apiRelation string) string {
+	response, errGet := http.Get(apiRelation)
+	if errGet != nil {
+		log.Fatal(errGet)
+	}
+	responseRelation, errReadAll := ioutil.ReadAll(response.Body)
+	if errReadAll != nil {
+		log.Fatal(errReadAll)
+	}
+	return string(responseRelation)
 }
