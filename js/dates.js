@@ -1,8 +1,8 @@
 console.log("Script display loaded")
 
 function recupGroupes(artists) {
-  artists = JSON.parse(artists)
-  for (let artist of artists) {
+  group = JSON.parse(artists)
+  for (let artist of group) {
       let nameSelect = artist['name']
       console.log(nameSelect);
       let id = artist['id']

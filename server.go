@@ -90,16 +90,13 @@ func locations(w http.ResponseWriter, req *http.Request) {
 
 func loadAPI() string {
 	response, errGet := http.Get("https://groupietrackers.herokuapp.com/api/artists")
-
 	if errGet != nil {
 		log.Fatal(errGet)
 	}
-
 	responseData, errReadAll := ioutil.ReadAll(response.Body)
 	if errReadAll != nil {
 		log.Fatal(errReadAll)
 	}
-
 	return string(responseData)
 }
 
