@@ -10,20 +10,18 @@
     <link rel="stylesheet" href="../static/css/navbar.css">
 
 </head>
-
 <body>
-    <header>
-        <div class="title">
-            <h1>Locations</h1>
-        </div>
-    </header>
-    <nav>
-        <ul id="navigation">
-            <li><a href="/home">Go Home</a></li>
-            <li><a href="/artists">Display artists</a></li>
-            <li><a href="/dates">Display dates</a></li>
-        </ul>
-    </nav>
+    <div class="navbar">
+        <h1>Groupie Tracker</h1>
+        <h4>All you want to know about concerts</h4>
+        <nav class="tabs">
+            <div class="selector"></div>
+            <a href="/home"  class="link">Accueil</a>
+            <a href="#" class="link active">Artistes</a>
+            <a href="/dates" class="link">Dates</a>
+            <a href="/locations" class="link">Villes</a>
+        </nav>
+    </div>
     <br>
     <div id="reglage">
         <form action="" method="POST">

@@ -1,13 +1,15 @@
-.title{
+.section_titre{
     text-align: center;
+    color:rgb(253, 253, 253)
 }
 section.locations{
-    background-color:#808080; 
     overflow:auto;
     padding:10px;
 }
 article#d-concert{
-    background-color:#a3a2a2;
+    background: linear-gradient(45deg,rgb(45, 45, 45), rgb(243, 214, 47));
+    width: auto;
+    color: white;
     float:left;
     margin-left:25%;
     border-style: outset;
@@ -15,17 +17,14 @@ article#d-concert{
     text-align: center;
 }
 article#p-concert{
-    background-color:#a3a2a2;
+    background: linear-gradient(135deg,rgb(243, 214, 47), rgb(45, 45, 45));
+    width: auto;
+    color: white;
     float:right;
     margin-right:25%;
     border-style: outset;
     border-radius: 10px;
     text-align: center;
 }
-article#d-concert:hover, article#d-concert:focus, article#d-concert:active {
-    background: #A0A0A0 ;
-}
-article#p-concert:hover, article#p-concert:focus, article#p-concert:active {
-    background: #A0A0A0 ;
-}
+
 
