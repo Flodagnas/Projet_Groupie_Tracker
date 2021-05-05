@@ -153,6 +153,7 @@ body {
 .members {
     margin-top: 10px;
     display: none;
+    padding-left: 0;
 }
 .members.displayed {
     display: block;
